@@ -7,6 +7,6 @@ This program will create an interactive map for game development where the admin
 [Laskarit](laskarit/)
 
 ### Project files
-[Requirments](Documentation/functional_requirements.md)
+[Requirements](Documentation/functional_requirements.md)
 
 [Record of working hours](Documentation/working_hours_record.md)
