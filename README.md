@@ -9,4 +9,4 @@ This program will create an interactive map for game development where the admin
 ### Project files
 [Requirments](Documentation/functional_requirements.md)
 
-[Record of working hours](Documentation/working_hour_record.md)
+[Record of working hours](Documentation/working_hours_record.md)
