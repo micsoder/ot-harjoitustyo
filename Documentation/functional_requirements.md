@@ -1,9 +1,9 @@
-### Functional requirements
+## Functional requirements
 
-#### The aim of the program
-
-
-#### The users
+### The aim of the program
 
 
-#### User Interface (UI)
+### The users
+
+
+### User Interface (UI)
