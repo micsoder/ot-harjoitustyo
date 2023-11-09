@@ -1,3 +1,5 @@
+
+```mermaid
 classDiagram
     Monopolipeli "1" -- "2" Noppa
     Monopolipeli "1" -- "1" Pelilauta
@@ -19,3 +21,4 @@ classDiagram
     Rakennus "1" -- "1" KadunTyyppi
     KadunTyyppi "1" -- "1" Pelaaja
     Rakennus "1" -- "1" Pelaaja
+```
