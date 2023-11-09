@@ -10,7 +10,7 @@ There will be both an admin and a normal user, where the admin will have the rig
 
 ### User Interface (UI)
 
-### What can be done in the program
+### Basic functionalities
 
 #### Before login
 - When the program is opened, the user is greeted by a login page
@@ -24,12 +24,14 @@ There will be both an admin and a normal user, where the admin will have the rig
 Example object that can be added to the map:
   * Information about a certain place
   * A short story/ lore about a location
-  * NPCs
   * Quests
 
 - Also, additional map layers containing specific information can be layered on the base map. The base map and the additional layers are not made in the program, they are imported into the program and made in a different software.
+- If the user hovers over an object with the mouse, the name of the object appears. 
 - After the user is ready with adding something or just viewing, the user can logout and thus the page is returned the the login page. 
 
-### Further development
--?
+### Advanced functionalities
+- Further development of the program could be
+  * Adding of NPCs
+  * Additional map layers
 
