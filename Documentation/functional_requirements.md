@@ -5,11 +5,14 @@
 The aim of this program is to aid the process of game development. The main feature of this program is the ability to add information to a conceptual game map. The map data may consist of location information, information about the NPCs (non-playable characters), extra map layers, etc. 
 
 ### The users
-
 There will be both an admin and a normal user, where the admin will have the right to do anything while the normal user's modification rights are limited.
 
 ### User Interface (UI)
+The program has three main views; the login page, the create account page, and the map page. By zooming in and out on the map page, new map pages appear.
 
+![UI](pictures/ui_sketch_first_draft.png)
+
+The program starts from the login page, if the user doesn't have an account, the user will have to create an account before logging in. After the user has logged in, the map page is seen with a dashboard to the right. By left-clicking the user can zoom in, by ctrl + right-clicking the user can add an object to the map, and by right-clicking the user can zoom out. To edit the dashboard, the user can press the edit button to change the information on the dashboard. The information on the dashboard corresponds to the object that is viewed on the map. To exit the program the user can press the exit button which takes the user back to the login page. 
 ### Basic functionalities
 
 #### Before login
@@ -28,7 +31,7 @@ Example object that can be added to the map:
 
 - Also, additional map layers containing specific information can be layered on the base map. The base map and the additional layers are not made in the program, they are imported into the program and made in a different software.
 - If the user hovers over an object with the mouse, the name of the object appears. 
-- After the user is ready with adding something or just viewing, the user can logout and thus the page is returned the the login page. 
+- After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
 
 ### Advanced functionalities
 - Further development of the program could be
