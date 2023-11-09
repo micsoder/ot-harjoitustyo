@@ -9,7 +9,7 @@ The aim of this program is to aid the process of game development. The main feat
 
 ### The users
 ---
-There will be both an admin and a normal user, where the admin will have the right to do anything while the normal user's modification rights are limited.
+There will be both an admin and a normal user, where the admin will have the right to do anything while the normal user's modification rights are limited. The admin can delete normal users and has access to program statistics.
 
 ### The user Interface (UI)
 ---
