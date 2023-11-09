@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant Main as Main (main)
     participant Laitehallinto as Laitehallinto (HKLLaitehallinto)
@@ -19,3 +20,4 @@ sequenceDiagram
     Main ->> Rautatietori: rautatietori.lataa_arvoa(kallen_kortti, 3)
     Main ->> Ratikka6: ratikka6.osta_lippu(kallen_kortti, 0)
     Main ->> Bussi244: bussi244.osta_lippu(kallen_kortti, 2)
+```
