@@ -2,7 +2,7 @@
 
 *The functional requirements file's aim is to give an overview of the program, the users, the user interface, and the functionalities of the program.*
 
-### The aim of the program
+### The purpose
 ---
 
 The aim of this program is to aid the process of game development. The main feature of this program is the ability to add information to a conceptual game map. The map data may consist of location information, information about the NPCs (non-playable characters), extra map layers, etc. 
@@ -11,7 +11,7 @@ The aim of this program is to aid the process of game development. The main feat
 ---
 There will be both an admin and a normal user, where the admin will have the right to do anything while the normal user's modification rights are limited.
 
-### User Interface (UI)
+### The user Interface (UI)
 ---
 The program has three main views; the login page, the create account page, and the map page. By zooming in and out on the map page, new map pages appear. 
 
@@ -20,7 +20,7 @@ The program starts from the login page, if the user doesn't have an account, the
 
 ![UI](pictures/ui_sketch_first_draft.png)
 
-### Basic functionalities
+### The basic functionalities
 ---
 
 #### Before login
@@ -41,10 +41,18 @@ Example object that can be added to the map:
 - If the user hovers over an object with the mouse, the name of the object appears. 
 - After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
 
-### Advanced functionalities
-
+### The advanced functionalities
 ---
 - Further development of the program could be
   * Adding of NPCs
   * Additional map layers
+
+### The technologies used
+---
+
+This program will be developed using Visual Studio Code as editor and Python as the programming language. Windows is the operative system but it will be ensured that the program also works on the Linux operative system. PostgreSQL will most likely be used for data storage.
+
+Other dependencies: 
+- ?
+
 
