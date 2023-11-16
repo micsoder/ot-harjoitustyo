@@ -49,7 +49,7 @@ class CreateAccountFrame():
         login_button.place(x = 395, y = 250)
     
     def login_button_pressed(self):
-
+        self.frame.destroy()
         if callable(self.login_callback):
             self.login_callback()
         
