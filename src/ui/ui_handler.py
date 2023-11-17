@@ -2,6 +2,7 @@ from ui.create_signup_frame import SignupFrame
 from ui.create_login_frame import LoginFrame
 from ui.create_map_frame import MapFrame
 import tkinter as tk
+from logic.user_handler import UserHandler
 
 class UiHandler():
 
@@ -18,16 +19,29 @@ class UiHandler():
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
 
-        self.create_signup_frame()
+        self.user_handler = UserHandler(self.database)
 
-    def create_signup_frame(self):
-        self.start = SignupFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.database, self.create_login_frame)
-
-    def create_login_frame(self):
-        LoginFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.database, self.create_map_frame) 
+        self.switch_frame(0)
     
-    def create_map_frame(self):
-        MapFrame(self.window, self.screen_width, self.screen_height)
+    def switch_frame(self, frame_id):
+        if frame_id == 0:
+            SignupFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.user_handler, self.switch_frame)
+        if frame_id == 1:
+            LoginFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.user_handler, self.switch_frame) 
+        if frame_id == 2:
+            MapFrame(self.window, self.screen_width, self.screen_height, self.switch_frame)
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 

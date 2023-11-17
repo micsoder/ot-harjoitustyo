@@ -2,10 +2,11 @@ import customtkinter
 
 class MapFrame():
 
-    def __init__(self, window, width, height):
+    def __init__(self, window, width, height, switch_state):
         self.window = window
         self.width = width
         self.height = height
+        self.switch_state = switch_state
 
         self.create_new_frame()
 

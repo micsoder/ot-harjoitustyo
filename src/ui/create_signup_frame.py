@@ -1,16 +1,15 @@
 import customtkinter
-from logic.signup_logic import Signup
 
 class SignupFrame():
 
-    def __init__(self, window, font1, font2, font3, font4, database, login_callback):
+    def __init__(self, window, font1, font2, font3, font4, user_handler, switch_frame):
         self.window = window
         self.font1 = font1
         self.font2 = font2
         self.font3 = font3
         self.font4 = font4
-        self.database = database
-        self.login_callback = login_callback
+        self.user_handler = user_handler
+        self.switch_frame = switch_frame
 
         self.create_new_frame()
         self.create_username_entry()
@@ -52,12 +51,12 @@ class SignupFrame():
 
     
     def signup_button_pressed(self):
-        save_user = Signup(self.username_entry, self.password_entry, self.database)
+        self.user_handler.create_account(self.username_entry, self.password_entry)
     
     def login_button_pressed(self):
         self.frame.destroy()
-        if callable(self.login_callback):
-            self.login_callback()
+        if callable(self.switch_frame):
+            self.switch_frame(1)
         
 
     

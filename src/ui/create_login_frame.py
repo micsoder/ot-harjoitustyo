@@ -1,16 +1,15 @@
-from logic.login_logic import Login
 import customtkinter
 
 class LoginFrame():
 
-    def __init__(self, window, font1, font2, font3, font4, database, login_callback):
+    def __init__(self, window, font1, font2, font3, font4, user_handler, switch_frame):
         self.window = window
         self.font1 = font1
         self.font2 = font2
         self.font3 = font3
         self.font4 = font4
-        self.database = database
-        self.login_callback = login_callback
+        self.user_handler = user_handler
+        self.switch_frame = switch_frame
 
         self.create_new_frame()
         self.create_username_entry()
@@ -19,6 +18,7 @@ class LoginFrame():
         self.create_login_button()
 
     def create_new_frame(self):
+        print('Creating new frame')
         self.frame = customtkinter.CTkFrame(self.window, bg_color = '#001220', fg_color = '#001220', width = 570, height = 360)
         self.frame.place(x = 480, y = 200)
 
@@ -39,8 +39,9 @@ class LoginFrame():
         login_button2.place(x = 200, y = 220)
     
     def login_button_pressed(self):
-        login = Login(self.username_entry, self.password_entry, self.database)
+        self.user_handler.login(self.username_entry, self.password_entry)
+
         self.frame.destroy()
-        if callable(self.login_callback):
-            self.login_callback()
+        if callable(self.switch_frame):
+            self.switch_frame(2)
         
