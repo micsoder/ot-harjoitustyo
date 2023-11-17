@@ -4,7 +4,7 @@
 This program will create an interactive map for game development where the admin can create NPCs, and quests and add information about the world.
 
 #### Current stage
-Up to this stage, the program enables users to both create an account and log in. Upon logging in, users are welcomed with a visually engaging placeholder page adorned with vibrant shades of green.
+Up to this stage, the program enables users to both create an account and log in. Upon logging in, users are welcomed with a visually engaging placeholder page adorned with vibrant shades of green. I am aware that now the account creation comes before the login page which is opposite from what I planned in the functional_requirements file but I am currently thinking about how I want it so it is purpose like that.
 
 
 ### Documentation
