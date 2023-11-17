@@ -8,18 +8,20 @@ class TestDataBase:
     def __init__(self):
         self.database_path()
         self.connect_to_data_database()
-
-    def setup_method(self):
         self.clear_database()
 
-    def teardown_method(self):
-        self.connection.close()
-
     def database_path(self):
-        self.db_path = os.path.join("test_data.db")
+
+        print(os.getcwd())
+        if os.getcwd().endswith('test_utility'):
+            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'test_data.db'))
+        else:
+            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'src', 'tests', 'test_utility', 'test_data.db'))
+
+        print(self.db_path)
 
     def connect_to_data_database(self):
-        self.connection = sqlite3.connect(self.db_path)
+        self.connection = sqlite3.connect('test_data.db')
         self.cursor = self.connection.cursor()
 
     def clear_database(self):
@@ -31,4 +33,9 @@ class TestDataBase:
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL)''')
+
+
+
+
+
 
