@@ -1,2 +1,4 @@
 *.drawio
 *.lock
+*.db
+*__pycache__
