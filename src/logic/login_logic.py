@@ -1,8 +1,6 @@
-import customtkinter
 from tkinter import messagebox
 from tkinter import *
 import bcrypt
-
 
 class Login():
 

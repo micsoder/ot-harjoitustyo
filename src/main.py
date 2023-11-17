@@ -9,15 +9,13 @@ class Main():
 
         self.create_database_connection()
         self.create_user_table()
-
         self.initialize_ui_view()
         
-
     def create_database_connection(self):
         self.database = DataBase()
     
     def create_user_table(self):
-        users_table = CreateTables(self.database)
+        CreateTables(self.database)
 
     def initialize_ui_view(self):
         UiHandler(self.window, self.database)

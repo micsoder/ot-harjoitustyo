@@ -14,9 +14,9 @@ class UiHandler():
         self.font3 = ('Arial', 13, 'bold')
         self.font4 = ('Arial', 13, 'bold', 'underline')
 
-        self.create_account_frame()
+        self.create_signup_frame()
 
-    def create_account_frame(self):
+    def create_signup_frame(self):
         self.start = CreateSignupFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.database, self.create_login_frame)
 
     def create_login_frame(self):
