@@ -38,10 +38,12 @@ class LoginFrame(BaseFrame):
         login_button2.place(x = 200, y = 220)
     
     def login_button_pressed(self):
-        success, message = self.user_handler.login(self.username_entry, self.password_entry)
-        messagebox.showerror(success, message)
-
-        self.frame.destroy()
-        if callable(self.switch_frame):
-            self.switch_frame(2)
+        success, message = self.user_handler.login(self.username_entry.get(), self.password_entry.get())
+        if success == 'Success':
+            messagebox.showinfo(success, message)
+            self.frame.destroy()
+            if callable(self.switch_frame):
+                self.switch_frame(2)
+        else:
+            messagebox.showerror(success, message)
         

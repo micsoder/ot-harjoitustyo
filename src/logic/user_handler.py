@@ -5,9 +5,7 @@ class UserHandler():
     def __init__(self, database):
         self.database = database
 
-    def create_account(self, username_entry, password_entry):
-        username = username_entry.get()
-        password = password_entry.get()
+    def create_account(self, username, password):
 
         if username != '' and password != '':
             self.database.cursor.execute('SELECT username FROM users WHERE username = ?', [username])
@@ -23,9 +21,8 @@ class UserHandler():
             return ('Error', 'Enter all information.')
 
 
-    def login(self, username_entry, password_entry):
-        username = username_entry.get()
-        password = password_entry.get()
+    def login(self, username, password):
+        
         if username != '' and password != '':
             self.database.cursor.execute('SELECT password FROM users WHERE username = ?', [username])
             result = self.database.cursor.fetchone()

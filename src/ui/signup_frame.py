@@ -48,8 +48,11 @@ class SignupFrame(BaseFrame):
 
     
     def signup_button_pressed(self):
-        success, message = self.user_handler.create_account(self.username_entry, self.password_entry)
-        messagebox.showerror(success, message)
+        success, message = self.user_handler.create_account(self.username_entry.get(), self.password_entry.get())
+        if success == 'Success':
+            messagebox.showinfo(success, message)
+        else:
+            messagebox.showerror(success, message)
     
     def login_button_pressed(self):
         self.frame.destroy()
