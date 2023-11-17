@@ -1,14 +1,15 @@
-
+from logic.login_logic import Login
 import customtkinter
 
 class CreateLoginFrame():
 
-    def __init__(self, window, font1, font2, font3, font4):
+    def __init__(self, window, font1, font2, font3, font4, database):
         self.window = window
         self.font1 = font1
         self.font2 = font2
         self.font3 = font3
         self.font4 = font4
+        self.database = database
 
         self.create_new_frame()
         self.create_username_entry()
@@ -33,6 +34,8 @@ class CreateLoginFrame():
         login_label2.place(x = 200 , y = 20)
     
     def create_login_button(self):
-
-        login_button2 = customtkinter.CTkButton(self.frame, font = self.font2, text_color = '#fff', text = 'Log in', fg_color = '#00965d', hover_color = '#006e44', bg_color = '#121111', cursor = 'hand2', corner_radius = 5, width = 120)
+        login_button2 = customtkinter.CTkButton(self.frame, command = self.login_button_pressed, font = self.font2, text_color = '#fff', text = 'Log in', fg_color = '#00965d', hover_color = '#006e44', bg_color = '#121111', cursor = 'hand2', corner_radius = 5, width = 120)
         login_button2.place(x = 200, y = 220)
+    
+    def login_button_pressed(self):
+        login = Login(self.username_entry, self.password_entry, self.database)

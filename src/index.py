@@ -1,5 +1,5 @@
 import customtkinter
-from ui.ui_handler import UiHandler
+from main import Main
 
 def main():
 
@@ -8,7 +8,7 @@ def main():
     window.after(0, lambda:window.state('zoomed'))
     window.config(bg='#001220')
 
-    UiHandler(window)
+    Main(window)
 
     window.mainloop()
 
