@@ -5,7 +5,10 @@ def main():
 
     window = customtkinter.CTk()
     window.title('Atlas')
-    window.after(0, lambda:window.state('zoomed'))
+
+    screen_width = window.winfo_screenwidth()
+    screen_height = window.winfo_screenheight()
+    window.geometry(f"{screen_width}x{screen_height}+0+0")
     window.config(bg='#001220')
 
     Main(window)
