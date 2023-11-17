@@ -10,11 +10,6 @@ class UiHandler():
         self.window = window
         self.database = database
 
-        self.font1 = ('Helvetica', 25, 'bold')
-        self.font2 = ('Arial', 17, 'bold')
-        self.font3 = ('Arial', 13, 'bold')
-        self.font4 = ('Arial', 13, 'bold', 'underline')
-
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
 
@@ -24,9 +19,9 @@ class UiHandler():
     
     def switch_frame(self, frame_id):
         if frame_id == 0:
-            SignupFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.user_handler, self.switch_frame)
+            SignupFrame(self.window, self.user_handler, self.switch_frame)
         if frame_id == 1:
-            LoginFrame(self.window, self.font1, self.font2, self.font3, self.font4, self.user_handler, self.switch_frame) 
+            LoginFrame(self.window, self.user_handler, self.switch_frame) 
         if frame_id == 2:
             MapFrame(self.window, self.screen_width, self.screen_height, self.switch_frame)
 

@@ -1,8 +1,10 @@
 import customtkinter
+from base_frame import BaseFrame
 
-class MapFrame():
+class MapFrame(BaseFrame):
 
     def __init__(self, window, width, height, switch_state):
+        super().__init__()
         self.window = window
         self.width = width
         self.height = height

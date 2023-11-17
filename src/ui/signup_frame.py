@@ -1,14 +1,12 @@
 import customtkinter
 from tkinter import messagebox
+from ui.base_frame import BaseFrame
 
-class SignupFrame():
+class SignupFrame(BaseFrame):
 
-    def __init__(self, window, font1, font2, font3, font4, user_handler, switch_frame):
+    def __init__(self, window, user_handler, switch_frame):
+        super().__init__()
         self.window = window
-        self.font1 = font1
-        self.font2 = font2
-        self.font3 = font3
-        self.font4 = font4
         self.user_handler = user_handler
         self.switch_frame = switch_frame
 
