@@ -1,6 +1,6 @@
-from ui.create_signup_frame import SignupFrame
-from ui.create_login_frame import LoginFrame
-from ui.create_map_frame import MapFrame
+from ui.signup_frame import SignupFrame
+from ui.login_frame import LoginFrame
+from ui.map_frame import MapFrame
 import tkinter as tk
 from logic.user_handler import UserHandler
 
