@@ -1,0 +1,14 @@
+import customtkinter
+
+class MapFrame():
+
+    def __init__(self, window, width, height):
+        self.window = window
+        self.width = width
+        self.height = height
+
+        self.create_new_frame()
+
+    def create_new_frame(self):
+        self.frame = customtkinter.CTkFrame(self.window, bg_color = '#001220', fg_color = '#6B8E23', width = self.width, height = self.height)
+        self.frame.place(x = 0, y = 0)

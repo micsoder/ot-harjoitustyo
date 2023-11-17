@@ -22,7 +22,6 @@ class Signup():
             else:
                 encoded_password = password.encode('utf-8')
                 hashed_password = bcrypt.hashpw(encoded_password, bcrypt.gensalt())
-                print(hashed_password)
                 self.database.cursor.execute('INSERT INTO users VALUES (?,?)', [username, hashed_password])
                 self.database.connection.commit()
                 messagebox.showinfo('Success', 'Account has been created.')

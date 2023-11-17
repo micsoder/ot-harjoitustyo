@@ -1,11 +1,11 @@
 import sqlite3
 import os
 
-
 class DataBase():
 
     def __init__(self):
         print('Connecting to database...')
+        
         self.database_path()
         self.connect_to_data_database()
     
@@ -16,6 +16,7 @@ class DataBase():
     def connect_to_data_database(self):
         self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
+
         print('Connection to database established...')
 
     

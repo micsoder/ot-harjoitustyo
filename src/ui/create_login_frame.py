@@ -1,15 +1,16 @@
 from logic.login_logic import Login
 import customtkinter
 
-class CreateLoginFrame():
+class LoginFrame():
 
-    def __init__(self, window, font1, font2, font3, font4, database):
+    def __init__(self, window, font1, font2, font3, font4, database, login_callback):
         self.window = window
         self.font1 = font1
         self.font2 = font2
         self.font3 = font3
         self.font4 = font4
         self.database = database
+        self.login_callback = login_callback
 
         self.create_new_frame()
         self.create_username_entry()
@@ -39,3 +40,7 @@ class CreateLoginFrame():
     
     def login_button_pressed(self):
         login = Login(self.username_entry, self.password_entry, self.database)
+        self.frame.destroy()
+        if callable(self.login_callback):
+            self.login_callback()
+        

@@ -1,7 +1,7 @@
 import customtkinter
 from logic.signup_logic import Signup
 
-class CreateSignupFrame():
+class SignupFrame():
 
     def __init__(self, window, font1, font2, font3, font4, database, login_callback):
         self.window = window
