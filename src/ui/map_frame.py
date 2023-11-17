@@ -1,5 +1,5 @@
 import customtkinter
-from base_frame import BaseFrame
+from ui.base_frame import BaseFrame
 
 class MapFrame(BaseFrame):
 
