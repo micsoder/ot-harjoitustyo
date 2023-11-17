@@ -1,7 +1,6 @@
 from ui.signup_frame import SignupFrame
 from ui.login_frame import LoginFrame
 from ui.map_frame import MapFrame
-import tkinter as tk
 from logic.user_handler import UserHandler
 
 class UiHandler():

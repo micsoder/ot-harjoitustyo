@@ -1,4 +1,5 @@
 import customtkinter
+from tkinter import messagebox
 
 class SignupFrame():
 
@@ -47,11 +48,10 @@ class SignupFrame():
         login_button = customtkinter.CTkButton(self.frame, command = self.login_button_pressed, font = self.font4, text_color = '#00bf77', text = 'Login', fg_color = '#001220', hover_color = '#001220', cursor = 'hand2', width = 40)
         login_button.place(x = 395, y = 250)
 
-
-
     
     def signup_button_pressed(self):
-        self.user_handler.create_account(self.username_entry, self.password_entry)
+        success, message = self.user_handler.create_account(self.username_entry, self.password_entry)
+        messagebox.showerror(success, message)
     
     def login_button_pressed(self):
         self.frame.destroy()

@@ -1,4 +1,5 @@
 import customtkinter
+from tkinter import messagebox
 
 class LoginFrame():
 
@@ -39,7 +40,8 @@ class LoginFrame():
         login_button2.place(x = 200, y = 220)
     
     def login_button_pressed(self):
-        self.user_handler.login(self.username_entry, self.password_entry)
+        success, message = self.user_handler.login(self.username_entry, self.password_entry)
+        messagebox.showerror(success, message)
 
         self.frame.destroy()
         if callable(self.switch_frame):
