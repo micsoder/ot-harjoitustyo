@@ -1,5 +1,3 @@
-
-
 class CreateTables():
 
     def __init__(self, database):
@@ -12,5 +10,3 @@ class CreateTables():
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL)''')
-
-

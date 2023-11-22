@@ -1,6 +1,7 @@
 import sqlite3
 import os
 
+
 class DataBase():
 
     def __init__(self):
@@ -10,14 +11,14 @@ class DataBase():
 
     def database_path(self):
         if os.getcwd().endswith('src'):
-            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'database', 'data.db'))
+            self.db_path = os.path.abspath(
+                os.path.join(os.getcwd(), 'database', 'data.db'))
         else:
-            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'src', 'database', 'data.db'))
+            self.db_path = os.path.abspath(os.path.join(
+                os.getcwd(), 'src', 'database', 'data.db'))
         print(self.db_path)
 
     def connect_to_data_database(self):
         self.connection = sqlite3.connect(self.db_path)
         self.cursor = self.connection.cursor()
         print('Connection to database established.')
-
-    

@@ -1,6 +1,7 @@
 import sqlite3
 import os
 
+
 class TestDataBase:
 
     __test__ = False
@@ -14,9 +15,11 @@ class TestDataBase:
 
         print(os.getcwd())
         if os.getcwd().endswith('test_utility'):
-            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'test_data.db'))
+            self.db_path = os.path.abspath(
+                os.path.join(os.getcwd(), 'test_data.db'))
         else:
-            self.db_path = os.path.abspath(os.path.join(os.getcwd(), 'src', 'tests', 'test_utility', 'test_data.db'))
+            self.db_path = os.path.abspath(os.path.join(
+                os.getcwd(), 'src', 'tests', 'test_utility', 'test_data.db'))
 
         print(self.db_path)
 
@@ -33,9 +36,3 @@ class TestDataBase:
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL)''')
-
-
-
-
-
-

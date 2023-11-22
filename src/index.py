@@ -1,6 +1,7 @@
 import customtkinter
 from main import Main
 
+
 def main():
 
     window = customtkinter.CTk()

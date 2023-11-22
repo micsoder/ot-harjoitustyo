@@ -13,6 +13,8 @@ packaging = "^23.2"
 bcrypt = "^4.0.1"
 coverage = "^7.3.2"
 pytest = "^7.4.3"
+pylint = "^3.0.2"
+autopep8 = "^2.0.4"
 
 
 [build-system]
