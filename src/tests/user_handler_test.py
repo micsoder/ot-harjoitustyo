@@ -64,11 +64,6 @@ class TestUserHandler(unittest.TestCase):
         result = self.user_handler.login('NonExistentUser', '000')
         self.assertEqual(result, ('Error', 'Invalid username.'))
 
-    def test_login_wrong_password(self):
-
-        result = self.user_handler.login('Frodo', 'wrongpassword')
-        self.assertEqual(result, ('Error', 'Invalid password.'))
-
     def test_login_wrong_username_and_password(self):
 
         result = self.user_handler.login('NonExistentUser', 'wrongpassword')

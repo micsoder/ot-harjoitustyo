@@ -15,5 +15,9 @@ class MapFrame(BaseFrame):
 
     def create_new_frame(self):
         self.frame = customtkinter.CTkFrame(
-            self.window, bg_color='#001220', fg_color='#6B8E23', width=self.width, height=self.height)
+            self.window,
+            bg_color='#001220',
+            fg_color='#6B8E23',
+            width=self.width,
+            height=self.height)
         self.frame.place(x=0, y=0)

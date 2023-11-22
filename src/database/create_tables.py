@@ -10,3 +10,10 @@ class CreateTables():
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL)''')
+
+    def create_information_table(self):
+
+        self.database.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS information (
+                - TEXT NOT NULL,
+                - TEXT NOT NULL)''')

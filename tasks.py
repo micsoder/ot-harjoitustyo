@@ -3,7 +3,7 @@ from invoke import task
 @task
 def start(ctx):
     """ Start the program """
-    ctx.run("python3 src/index.py")
+    ctx.run("python src/index.py")
 
 @task
 def test(ctx):
@@ -17,7 +17,7 @@ def coverage_report(ctx):
     ctx.run("coverage html")
 
 @task
-def formats(ctx):
+def lint(ctx):
     """ Quality grade and automatic formatting """
 
     ctx.run('autopep8 --in-place --recursive src')
