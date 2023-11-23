@@ -1,3 +1,4 @@
+import customtkinter
 
 class BaseFrame():
 
@@ -7,3 +8,5 @@ class BaseFrame():
         self.font2 = ('Arial', 17, 'bold')
         self.font3 = ('Arial', 13, 'bold')
         self.font4 = ('Arial', 13, 'bold', 'underline')
+
+

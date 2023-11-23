@@ -35,7 +35,7 @@ class LoginFrame(BaseFrame):
             bg_color='#121111',
             border_color='#004780',
             border_width=3,
-            placeholder_text='Password',
+            placeholder_text='Username',
             placeholder_text_color='#a3a3a3',
             width=200,
             height=50
@@ -52,7 +52,7 @@ class LoginFrame(BaseFrame):
             bg_color='#121111',
             border_color='#004780',
             border_width=3,
-            placeholder_text='Username',
+            placeholder_text='Password',
             placeholder_text_color='#a3a3a3',
             width=200,
             height=50

@@ -18,5 +18,5 @@ class CreateTables():
             CREATE TABLE IF NOT EXISTS zone_base_data (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 ZoneTitle TEXT,
-                ZoneDescription TEXT
+                ZoneDescription TEXT,
                 ZoneImage TEXT)''')

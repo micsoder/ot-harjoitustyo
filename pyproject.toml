@@ -15,6 +15,7 @@ coverage = "^7.3.2"
 pytest = "^7.4.3"
 pylint = "^3.0.2"
 autopep8 = "^2.0.4"
+pillow = "^10.1.0"
 
 
 [build-system]

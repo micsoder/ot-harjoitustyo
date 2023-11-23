@@ -2,7 +2,6 @@ from tkinter import messagebox
 import customtkinter
 from ui.base_frame import BaseFrame
 
-
 class SignupFrame(BaseFrame):
 
     def __init__(self, window, user_handler, switch_frame):
@@ -14,6 +13,7 @@ class SignupFrame(BaseFrame):
         self.create_new_frame()
         self.create_username_entry()
         self.create_password_entry()
+
         self.create_signup_label()
         self.create_signup_button()
         self.create_login_label_to_next_page()
@@ -117,3 +117,4 @@ class SignupFrame(BaseFrame):
         self.frame.destroy()
         if callable(self.switch_frame):
             self.switch_frame(1)
+
