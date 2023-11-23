@@ -17,6 +17,6 @@ class CreateTables():
         self.database.cursor.execute('''
             CREATE TABLE IF NOT EXISTS zone_base_data (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                ZoneTitle TEXT,
-                ZoneDescription TEXT,
-                ZoneImage TEXT)''')
+                zone_title TEXT,
+                zone_description TEXT,
+                zone_image TEXT)''')

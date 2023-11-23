@@ -2,6 +2,7 @@ from tkinter import messagebox
 import customtkinter
 from ui.base_frame import BaseFrame
 
+
 class SignupFrame(BaseFrame):
 
     def __init__(self, window, user_handler, switch_frame):
@@ -117,4 +118,3 @@ class SignupFrame(BaseFrame):
         self.frame.destroy()
         if callable(self.switch_frame):
             self.switch_frame(1)
-
