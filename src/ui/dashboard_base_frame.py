@@ -66,7 +66,8 @@ class DashboardBaseFrame(BaseFrame):
             border_color='#fff',
             border_width=2,
             width = 350, 
-            height = 300)     
+            height = 300,
+            wrap = 'word')     
         self.description.place(x=10, y=150) 
     
     def save_text_button(self):
