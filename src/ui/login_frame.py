@@ -18,7 +18,6 @@ class LoginFrame(BaseFrame):
         self.create_login_button()
 
     def create_new_frame(self):
-        print('Creating new frame')
         self.frame = customtkinter.CTkFrame(
             self.window,
             bg_color='#001220',

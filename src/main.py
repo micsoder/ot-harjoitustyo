@@ -10,13 +10,13 @@ class Main():
         self.window = window
         print('Current Working Directory:', os.getcwd())
         self.create_database_connection()
-        self.create_user_table()
+        self.create_all_tables()
         self.initialize_ui_view()
 
     def create_database_connection(self):
         self.database = DataBase()
 
-    def create_user_table(self):
+    def create_all_tables(self):
         CreateTables(self.database)
 
     def initialize_ui_view(self):

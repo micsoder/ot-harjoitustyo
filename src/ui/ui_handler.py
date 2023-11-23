@@ -1,7 +1,8 @@
 from ui.signup_frame import SignupFrame
 from ui.login_frame import LoginFrame
-from ui.map_frame import MapFrame
+from ui.content_handler import ContentHandler
 from logic.user_handler import UserHandler
+from logic.zone_data_handler import ZoneDataHandler
 
 
 class UiHandler():
@@ -15,6 +16,7 @@ class UiHandler():
         self.screen_height = self.window.winfo_screenheight()
 
         self.user_handler = UserHandler(self.database)
+        self.zone_data = ZoneDataHandler(self.database)
 
         self.switch_frame(0)
 
@@ -24,5 +26,5 @@ class UiHandler():
         if frame_id == 1:
             LoginFrame(self.window, self.user_handler, self.switch_frame)
         if frame_id == 2:
-            MapFrame(self.window, self.screen_width,
+            ContentHandler(self.window, self.zone_data, self.screen_width,
                      self.screen_height, self.switch_frame)
