@@ -10,6 +10,7 @@ class TestDataBase:
         self.database_path()
         self.connect_to_data_database()
         self.clear_database()
+        self.create_zone_base_data_table()
 
     def database_path(self):
 
@@ -36,3 +37,11 @@ class TestDataBase:
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
                 password TEXT NOT NULL)''')
+
+    def create_zone_base_data_table(self):
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS zone_base_data (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                zone_title TEXT,
+                zone_description TEXT,
+                zone_image TEXT)''')

@@ -5,19 +5,17 @@ class ZoneDataHandler():
     def __init__(self, database):
         self.database = database
 
-    def load_data_from_table_to_dashboard(self, view_id, title_entry, description):
+    def load_data_from_table_to_dashboard(self, view_id):
+
         self.database.cursor.execute(
             'SELECT zone_title, zone_description FROM zone_base_data WHERE id = ?', (view_id,))
         data = self.database.cursor.fetchone()
 
         if data:
             zone_title, zone_description = data
-            title_entry.insert(0, zone_title)
-            description.insert("1.0", zone_description)
+            return zone_title, zone_description
 
     def save_data_from_dashboard_to_table(self, view_id, title, description):
-        title = title.get()
-        description = description.get("1.0", "end-1c")
 
         self.database.cursor.execute(
             'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
