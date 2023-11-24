@@ -88,7 +88,8 @@ class DashboardBaseFrame(BaseFrame):
         self.save_button.place(x=10, y=760)
 
     def load_data(self):
-        zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(self.view_id)
+        zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(
+            self.view_id)
         self.title.insert(0, zone_title)
         self.description.insert("1.0", zone_description)
 

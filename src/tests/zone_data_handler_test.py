@@ -11,9 +11,10 @@ class TestZoneDataHandler(unittest.TestCase):
         print('Testing starting...')
         self.test_database = TestDataBase()
         self.zone_data = ZoneDataHandler(self.test_database)
-    
+
     def test_save_data_to_table_from_dashboard(self):
-        self.zone_data.save_data_from_dashboard_to_table('1', 'Shire', 'A place where Hobbits live')
+        self.zone_data.save_data_from_dashboard_to_table(
+            '1', 'Shire', 'A place where Hobbits live')
         zone_data = self.test_database.cursor.execute(
             "SELECT zone_title, zone_description FROM zone_base_data WHERE id = 1")
 
