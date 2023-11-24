@@ -63,6 +63,7 @@ poetry run invoke start
 ```
 
 #### To test the program
+#### PS. run this command twice, I noticed that the first time one test failed but when I ran it again, all succeeded.
 The program can be tested from the terminal with the following command:
 ```
 poetry run invoke test
