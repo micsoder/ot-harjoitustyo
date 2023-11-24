@@ -11,6 +11,7 @@ Up to this stage, the program enables users to both create an account and log in
 - [Requirements](Documentation/functional_requirements.md)
 - [Record of working hours](Documentation/working_hours_record.md)
 - [Changelog](Documentation/changelog.md)
+- [Architecture](Documentation/architecture.md)
 
 ### Installation guide
 
