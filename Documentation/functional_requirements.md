@@ -24,12 +24,12 @@ The program starts from the login page, if the user doesn't have an account, the
 ---
 
 #### Before login
-- When the program is opened, the user is greeted by a login page
-- On the login page, the user can create an account or log in if the user already has an account
-- The user can log in by adding their username and password. If the username or password is wrong or cannot be found, then a message about that will appear
+- [x] When the program is opened, the user is greeted by a login page
+- [x] On the login page, the user can create an account or log in if the user already has an account
+- [x] The user can log in by adding their username and password. If the username or password is wrong or cannot be found, then a message about that will appear
 
 #### After login
-- The user sees the first map page which is the most zoomed-out map view of the game map. On the right side of the page, there is a dashboard where information added to the map is viewed.
+- [x] The user sees the first map page which is the most zoomed-out map view of the game map. On the right side of the page, there is a dashboard where information added to the map is viewed.
 - By mouse left-clicking, the map view zooms in on the particular place where the mouse is, and by mouse right-clicking, the map view zooms out.
 - By ctrl + right-click on a specific spot on the map, a drop-down menu appears which states the objects that can be added to the map on that location.
 Example object that can be added to the map:
