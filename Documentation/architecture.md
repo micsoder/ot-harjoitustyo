@@ -8,6 +8,6 @@ The build of the program looks currently like this, a three-tier monolithic arch
 - *UI* is the graphical user interface
 - *logic* is the logic of the program 
 - *database* is where the data is saved. 
-#### UI
-
 #### Program logic
+
+![Architecture](pictures/ui_and_logic_architecture.png)
