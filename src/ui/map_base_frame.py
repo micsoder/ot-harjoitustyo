@@ -1,6 +1,7 @@
 import customtkinter
 from PIL import Image, ImageTk
 import tkinter as tk
+import os
 
 
 class MapBaseFrame():
@@ -32,7 +33,14 @@ class MapBaseFrame():
     def retrive_zone_image(self):
         self.zone_image_file_name = self.zone_data.load_data_from_table_to_map(
             self.view_id)
-        image_path = f'assets/{self.zone_image_file_name[0]}'
+
+        if os.getcwd().endswith('ot-harjoitustyo'):
+            image_path = f'src/assets/{self.zone_image_file_name[0]}'
+            print('Current Working Directory:', os.getcwd())
+
+        else:
+            image_path = f'assets/{self.zone_image_file_name[0]}'
+            print('Current Working Directory:', os.getcwd())
 
         image_width = (self.width * 3/4)
         image_height = self.height
