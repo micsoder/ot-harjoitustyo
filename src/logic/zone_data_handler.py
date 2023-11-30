@@ -54,3 +54,21 @@ class ZoneDataHandler():
         data = self.database.cursor.fetchone()
 
         return data
+
+    def save_map_information_to_table(self, view_id, title, image):
+
+        self.database.cursor.execute(
+            'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
+        existing_data = self.database.cursor.fetchone()
+
+        if existing_data:
+            self.database.cursor.execute('''
+                UPDATE zone_base_data
+                SET zone_title = ?, zone_image = ?
+                WHERE id = ?''', (title, image, view_id))
+        else:
+            self.database.cursor.execute('''
+                INSERT INTO zone_base_data (id, zone_title, zone_image) 
+                VALUES (?, ?, ?)''', (view_id, title, image))
+
+        self.database.connection.commit()

@@ -17,6 +17,8 @@ class MapBaseFrame():
         self.add_zone_image()
         self.retrive_zone_image()
 
+        self.rectangles = []
+
         self.window.bind("<Button-3>", self.show_optionmenu)
 
     def create_new_map_canva(self):
@@ -79,12 +81,16 @@ class MapBaseFrame():
             self.map_canva,
             bg_color = '#FFFFFF',
             fg_color = '#FFFFFF',
-            width = 120,
-            height = 120)
+            width = 140,
+            height = 140
+        )
+
         self.information_frame.place(x = 10, y = 50)
         self.zone_information_label()
         self.zone_title_entry()
         self.zone_image_file_entry()
+        self.mark_zone_button()
+        self.save_button()
 
     def zone_information_label(self):
         self.zone_label = customtkinter.CTkLabel(
@@ -94,37 +100,95 @@ class MapBaseFrame():
             bg_color = '#FFFFFF',
             fg_color = '#FFFFFF',
         )
-        self.zone_label.place(x=10, y=10)
+        self.zone_label.place(x=10, y=5)
     
     def zone_title_entry(self):
         self.title = customtkinter.CTkEntry(
             self.information_frame,
             text_color='black',
-            bg_color='#B2BEB5',
-            fg_color='#B2BEB5',
-            border_color='#B2BEB5',
+            bg_color='#FFFFFF',
+            fg_color='#E5F0DD',
+            border_color='#E5F0DD',
             border_width=2,
             placeholder_text='Add title',
             placeholder_text_color='#a3a3a3',
-            width=100,
+            width=120,
             height=20
         )
-        self.title.place(x=10, y=50)
+        self.title.place(x=10, y=40)
 
     def zone_image_file_entry(self):
         self.image_entry = customtkinter.CTkEntry(
             self.information_frame,
             text_color='black',
-            bg_color='#B2BEB5',
-            fg_color='#B2BEB5',
-            border_color='#B2BEB5',
+            bg_color='#FFFFFF',
+            fg_color='#E5F0DD',
+            border_color='#E5F0DD',
             border_width=2,
             placeholder_text='Add image filename',
             placeholder_text_color='#a3a3a3',
-            width=100,
+            width=120,
             height=20
         )
-        self.image_entry.place(x=10, y=80)
+        self.image_entry.place(x=10, y=70)
 
+    def mark_zone_button(self):
+        self.mark_zone_button = customtkinter.CTkButton(
+            self.information_frame,
+            text='Mark zone',
+            command=self.mark_zone_rectangle,
+            text_color='black',
+            bg_color='#FFFFFF',
+            fg_color='#6EA149',
+            border_color='#6EA149',
+            hover_color='#56793C',
+            cursor='hand2',
+            corner_radius=5,
+            width=40
+        )
+        self.mark_zone_button.place(x=10, y=100)
+
+    def save_button(self):
+        self.save_button = customtkinter.CTkButton(
+            self.information_frame,
+            text='Save',
+            command=self.save_zone_information,
+            text_color='black',
+            bg_color='#FFFFFF',
+            fg_color='#6EA149',
+            border_color='#6EA149',
+            hover_color='#56793C',
+            cursor='hand2',
+            corner_radius=5,
+            width=30
+        )
+        self.save_button.place(x=90, y=100)
+
+    def mark_zone_rectangle(self):
+        self.window.bind("<Button-1>", self.get_x_and_y)
+        self.window.bind("<B1-Motion>", self.draw_rectangle)
+    
+    def get_x_and_y(self, event):
+        self.lasx, self.lasy = event.x, event.y
+    
+    def draw_rectangle(self, event):
+
+        x, y = self.lasx, self.lasy
+        width, height = event.x - x, event.y - y
+        print(f'Rectangle coordinates: x={x}, y={y}, width={width}, height={height}')  
+        rect_id = self.map_canva.create_rectangle(x, y, event.x, event.y, outline='red', width=2, fill='', tags='rectangle')
+
+        # Save the rectangle coordinates in the list
+        self.rectangles.append({
+            'id': rect_id,
+            'coordinates': (x, y, event.x, event.y),
+        })
+        #rect_id = self.map_canva.create_rectangle((self.lasx, self.lasy, event.x, event.y))
+        self.lasx, self.lasy = event.x, event.y
+ 
+    def save_zone_information(self):
+        view_id = self.view_id + 1
+        self.zone_data.save_map_information_to_table(
+            view_id, self.title.get(), self.image_entry.get())
 
 
