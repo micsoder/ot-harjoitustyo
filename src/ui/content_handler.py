@@ -12,6 +12,10 @@ class ContentHandler():
         self.switch_state = switch_state
         self.view_id = 1
 
+        self.switch_frame()
+    
+    def switch_frame(self):
+
         MapBaseFrame(self.view_id, self.window,
                      self.zone_data, self.width, self.height)
         DashboardBaseFrame(self.view_id, self.window,
