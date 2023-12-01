@@ -55,20 +55,38 @@ class ZoneDataHandler():
 
         return data
 
-    def save_map_information_to_table(self, view_id, title, image):
+    def save_map_information_to_table(self, view_id, title, description, image):
+        
+        self.database.cursor.execute('SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')
+        last_id = self.database.cursor.fetchone()[0]
+
+        new_zone_id = last_id + 1
+        print('This is the new id')
+        print(new_zone_id)
 
         self.database.cursor.execute(
-            'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
+            'SELECT * FROM zone_base_data WHERE id = ?', (new_zone_id,))
         existing_data = self.database.cursor.fetchone()
 
         if existing_data:
             self.database.cursor.execute('''
                 UPDATE zone_base_data
-                SET zone_title = ?, zone_image = ?
-                WHERE id = ?''', (title, image, view_id))
+                SET zone_title = ?, zone_description = ?, zone_image = ?
+                WHERE id = ?''', (title, description, image, new_zone_id))
         else:
             self.database.cursor.execute('''
-                INSERT INTO zone_base_data (id, zone_title, zone_image) 
-                VALUES (?, ?, ?)''', (view_id, title, image))
+                INSERT INTO zone_base_data (id, zone_title, zone_description, zone_image) 
+                VALUES (?, ?, ?, ?)''', (new_zone_id, title, description, image))
 
         self.database.connection.commit()
+    
+    def fetch_zone_titles_for_optionmenu(self):
+
+        self.database.cursor.execute('SELECT zone_title FROM zone_base_data')
+        zone_titles = [row[0] for row in self.database.cursor.fetchall()]
+        return zone_titles
+    
+    def retrive_id_based_on_title(self, selected_title):
+        self.database.cursor.execute('SELECT id FROM zone_base_data WHERE zone_title = ?', (selected_title,))
+        next_view_id = self.database.cursor.fetchone()
+        return next_view_id

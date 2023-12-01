@@ -1,5 +1,6 @@
 from ui.dashboard_base_frame import DashboardBaseFrame
 from ui.map_base_frame import MapBaseFrame
+from ui.map_bar_frame import MapBarFrame
 
 
 class ContentHandler():
@@ -10,16 +11,18 @@ class ContentHandler():
         self.width = width
         self.height = height
         self.switch_state = switch_state
-        self.view_id = 1
+        view_id = 1
 
-        self.switch_frame()
+        self.switch_frame(view_id)
     
-    def switch_frame(self):
+    def switch_frame(self, view_id):
 
-        MapBaseFrame(self.view_id, self.window,
-                     self.zone_data, self.width, self.height)
-        DashboardBaseFrame(self.view_id, self.window,
-                           self.zone_data, self.width, self.height)
+        MapBaseFrame(view_id, self.window, self.zone_data, 
+                    self.width, self.height)
+        MapBarFrame(view_id, self.window, self.zone_data, 
+                    self.width, self.height, self.switch_frame)
+        DashboardBaseFrame(view_id, self.window, self.zone_data, 
+                    self.width, self.height)
 
         """ The methods below will be used to determine and change the self.view_id but this functionality will be made next week. """
 

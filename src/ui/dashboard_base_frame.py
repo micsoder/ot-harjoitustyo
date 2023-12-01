@@ -24,7 +24,7 @@ class DashboardBaseFrame(BaseFrame):
     def background_dashboard_frame(self):
         self.dashboard_frame = customtkinter.CTkFrame(
             self.window,
-            bg_color='#001220',
+            bg_color='#3b5f7a',
             fg_color='#3b5f7a',
             width=self.width * 1/4,
             height=self.height
@@ -78,9 +78,9 @@ class DashboardBaseFrame(BaseFrame):
             command=self.save_data,
             font=self.font2,
             text_color='#fff',
+            bg_color='#3b5f7a',
             fg_color='#00965d',
             hover_color='#006e44',
-            bg_color='#121111',
             cursor='hand2',
             corner_radius=5,
             width=50
