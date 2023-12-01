@@ -43,22 +43,12 @@ class MapBaseFrame():
             None
 
     def retrive_zone_image(self):
-        print('ATTENTION')
-        print(self.view_id)
         self.zone_image_file_name = self.zone_data.load_data_from_table_to_map(self.view_id)
 
         current_directory = os.path.dirname(os.path.abspath(__file__))
         project_directory = os.path.join(current_directory, '..')
         image_path_relative = os.path.join('assets', self.zone_image_file_name[0])
         image_path = os.path.join(project_directory, image_path_relative)
-
-        #if os.getcwd().endswith('ot-harjoitustyo'):
-            #image_path = f'src/assets/{self.zone_image_file_name[0]}'
-            #print('Current Working Directory:', os.getcwd())
-
-        #else:
-            #image_path = f'assets/{self.zone_image_file_name[0]}'
-            #print('Current Working Directory:', os.getcwd())
 
         image_width = int(self.width * 3/4)
         image_height = int(self.height * 26/27)

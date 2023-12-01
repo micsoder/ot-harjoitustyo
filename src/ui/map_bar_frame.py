@@ -82,7 +82,7 @@ class MapBarFrame():
         self.zone_title_entry()
         self.zone_image_file_entry()
         self.zone_description_entry()
-        self.save_button()
+        self.save_information_button()
 
     def zone_information_label(self):
         self.zone_label = customtkinter.CTkLabel(
@@ -138,7 +138,7 @@ class MapBarFrame():
         )
         self.zone_description.place(x=10, y=100)
 
-    def save_button(self):
+    def save_information_button(self):
         self.save_button = customtkinter.CTkButton(
             self.information_frame,
             text='Save',

@@ -13,35 +13,16 @@ class ContentHandler():
         self.switch_state = switch_state
         view_id = 1
 
-        self.map_base_frame = MapBaseFrame(
-                    view_id, self.window, self.zone_data, self.width, self.height)
+        self.map_base_frame = MapBaseFrame(view_id, self.window, self.zone_data, self.width, self.height)
 
         self.switch_frame(view_id)
     
     def switch_frame(self, view_id):
         self.map_base_frame.update_image(view_id)
 
-        #MapBaseFrame(view_id, self.window, self.zone_data, 
-                    #self.width, self.height)
         MapBarFrame(view_id, self.window, self.zone_data, 
                     self.width, self.height, self.switch_frame)
         DashboardBaseFrame(view_id, self.window, self.zone_data, 
                     self.width, self.height)
 
-        """ The methods below will be used to determine and change the self.view_id but this functionality will be made next week. """
-
-    def leftClick():
-        """ Zoom in."""
-        pass
-
-    def rightClick():
-        """ Zoom out. """
-        pass
-
-    def middleClick():
-        """ Add object. """
-        pass
-
-    def ctrlRightClick(self):
-        """ Add object. """
-        pass
+       

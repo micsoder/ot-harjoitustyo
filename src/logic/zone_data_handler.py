@@ -52,8 +52,6 @@ class ZoneDataHandler():
         self.database.cursor.execute(
             'SELECT zone_image FROM zone_base_data WHERE id = ?', (view_id,))
         data = self.database.cursor.fetchone()
-        print('ATTENTION 2')
-        print(data)
 
         return data
 
