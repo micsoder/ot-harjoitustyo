@@ -33,7 +33,7 @@ class ZoneDataHandler():
 
         self.database.connection.commit()
 
-    def add_image_data_to_table(self, view_id, image):
+    def add_image_data_to_table(self, view_id, title, description, image):
         self.database.cursor.execute(
             'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
         existing_data = self.database.cursor.fetchone()
@@ -41,17 +41,19 @@ class ZoneDataHandler():
         if existing_data:
             self.database.cursor.execute('''
                 UPDATE zone_base_data
-                SET zone_image = ? 
-                WHERE id = ?''', (image, view_id))
+                SET zone_title = ?, zone_description = ?, zone_image = ? 
+                WHERE id = ?''', (title, description, image, view_id))
         else:
             self.database.cursor.execute('''
-                INSERT INTO zone_base_data (zone_image) 
-                VALUES (?)''', (image, ))
+                INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
+                VALUES (?, ?, ?)''', (title, description, image, ))
 
     def load_data_from_table_to_map(self, view_id):
         self.database.cursor.execute(
             'SELECT zone_image FROM zone_base_data WHERE id = ?', (view_id,))
         data = self.database.cursor.fetchone()
+        print('ATTENTION 2')
+        print(data)
 
         return data
 
@@ -61,8 +63,6 @@ class ZoneDataHandler():
         last_id = self.database.cursor.fetchone()[0]
 
         new_zone_id = last_id + 1
-        print('This is the new id')
-        print(new_zone_id)
 
         self.database.cursor.execute(
             'SELECT * FROM zone_base_data WHERE id = ?', (new_zone_id,))
@@ -88,5 +88,5 @@ class ZoneDataHandler():
     
     def retrive_id_based_on_title(self, selected_title):
         self.database.cursor.execute('SELECT id FROM zone_base_data WHERE zone_title = ?', (selected_title,))
-        next_view_id = self.database.cursor.fetchone()
+        next_view_id = self.database.cursor.fetchone()[0]
         return next_view_id

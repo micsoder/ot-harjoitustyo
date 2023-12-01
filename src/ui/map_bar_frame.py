@@ -45,7 +45,10 @@ class MapBarFrame():
     def optionmenu_callback(self, selected_title):
 
         self.next_view_id = self.zone_data.retrive_id_based_on_title(selected_title)
+
         if callable(self.switch_frame):
+            print('Now displaying the selected map!')
+            self.map_bar_frame.destroy()
             self.switch_frame(self.next_view_id)
 
 
