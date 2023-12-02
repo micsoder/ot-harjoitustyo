@@ -4,10 +4,14 @@
 This program will create an interactive map for game development where the admin can create NPCs, and quests and add information about the world.
 
 #### Current stage
-Up to this stage, the program enables users to both create an account and log in. Upon logging in, the user sees a placeholder image of villages and a dashboard. Into the dashboard, a title and a description can be added, by pressing the save button at the bottom, the information is saved so that the next time the user opens the program, the same information appears. Currently, the features to zoom in, zoom out, and add objects to the map are not yet developed so the placeholder image with the four villages is the only map that can be seen. I have made the map itself on the [inkarnate](https://inkarnate.com/maps/) website.
+Up to this stage, the program enables users to both create an account and log in. Upon logging in, the user sees a placeholder image of villages, a dashboard, and a bar. Into the dashboard, a title and a description can be added, by pressing the save button at the bottom, the information is saved so that the next time the user opens the program, the same information appears. On the top of the window, there is a bar with two functions. If the user presses the **Add zone** button, then a pop-up window will appear where the user can add the title of the new zone, the filename of the image, and a description and then by pressing the **save button**, the zone is saved. If the user then chooses from the bar, **Show zone**, then the user can choose which zone to show by selecting one of the options from the dropdown menu. The user can all the time change the title and description in the dashboard by updating them and then pressing the **save button**. 
 
-PS.
-I am aware that now the account creation comes before the login page which is opposite from what I planned in the functional_requirements file but I am currently thinking about how I want it so it is purpose like that.
+
+**PS. 1)** My original idea was that a new zone is added so that the user mouse clicks on the map and a polygon is created around that area and then that area would have been shown by clicking on that area on the map. Unfortunately, I wasn't able to get it to work now so I made it a bit more static with the bar functions. 
+
+**PS. 2)** I am aware that now the account creation comes before the login page which is opposite from what I planned in the functional_requirements file but I am currently thinking about how I want it so it is purpose like that.
+
+**PS. 3)** I have made the map itself on the [inkarnate](https://inkarnate.com/maps/) website.
 
 
 ### Documentation
@@ -64,7 +68,6 @@ poetry run invoke start
 ```
 
 #### To test the program
-#### PS. run this command twice, I noticed that the first time one test failed but when I ran it again, all succeeded.
 The program can be tested from the terminal with the following command:
 ```
 poetry run invoke test
