@@ -15,6 +15,7 @@ I am aware that now the account creation comes before the login page which is op
 - [Record of working hours](Documentation/working_hours_record.md)
 - [Changelog](Documentation/changelog.md)
 - [Architecture](Documentation/architecture.md)
+- [Week 5 release](https://github.com/micsoder/ot-harjoitustyo/releases/tag/week5)
 
 ### Installation guide
 
