@@ -17,5 +17,13 @@
   - I added a placeholder map image to the map frame. 
 - I fixed some Pylint issues
 - I did some testing
-- I did some documenting 
+- I did some documenting
+
+### Week 5
+- I implemented an upper bar to the map from where the user add a new zone or show a zone.
+- The zones which are added are then saved to a table and when the user wants that zone to be shown, then
+  the program takes the information from the table and displays in on the map.
+- I did some testing.
+- I did a Github release.
+- I did some documenting.
     
