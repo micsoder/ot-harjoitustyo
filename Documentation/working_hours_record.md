@@ -8,3 +8,7 @@
 | 22.11 | 6 | I started with creating the logic that saves the things added by the user to a table so that when the program is reopened, the information appears in the textbox.|
 | 23.11 | 8 | I continued with the logic and wrote some tests.|
 | 24.11 | 5 | I did the documentation etc and tried my program in Cubbli.|
+| 30.11 | 8 | I started to research how I should implement the function that zooms in on places on the map. Started on one idea where the user creates a polygon on the map by clicking on the mouse but I did not succeed with this|
+| 1.12 | 8 | Because I did not succeed with the original idea, I had to come up with something else which was to create a bar from where the user can add zones and show zones.|
+| 2.2 | 5 | I did the tests, documentation, Github release and tried my program in Cubbli.|
+| Sum of hours | 64h | -|
