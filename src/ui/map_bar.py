@@ -156,7 +156,7 @@ class MapBar():
 
     def save_zone_information(self):
         self.zone_data.save_new_zone_information_to_table(
-            self.view_id, self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
+            self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
         self.information_frame.destroy()
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()

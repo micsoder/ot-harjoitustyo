@@ -47,7 +47,7 @@ class ZoneDataHandler():
             self.database.cursor.execute('''
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
-        
+
         self.database.connection.commit()
 
     def load_image_from_table_to_map(self, view_id):
@@ -57,7 +57,7 @@ class ZoneDataHandler():
 
         return data
 
-    def save_new_zone_information_to_table(self, view_id, title, description, image):
+    def save_new_zone_information_to_table(self, title, description, image):
 
         self.database.cursor.execute(
             'SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')
