@@ -12,8 +12,11 @@ class UiHandler():
         self.window = window
         self.database = database
 
-        self.screen_width = self.window.winfo_screenwidth()
-        self.screen_height = self.window.winfo_screenheight()
+        # screen_width = self.window.winfo_screenwidth()
+        # screen_height = self.window.winfo_screenheight()
+
+        self.screen_width = 1536
+        self.screen_height = 864
 
         self.user_handler = UserHandler(self.database)
         self.zone_data = ZoneDataHandler(self.database)
