@@ -56,8 +56,9 @@ class ZoneDataHandler():
         return data
 
     def save_map_information_to_table(self, view_id, title, description, image):
-        
-        self.database.cursor.execute('SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')
+
+        self.database.cursor.execute(
+            'SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')
         last_id = self.database.cursor.fetchone()[0]
 
         new_zone_id = last_id + 1
@@ -77,14 +78,15 @@ class ZoneDataHandler():
                 VALUES (?, ?, ?, ?)''', (new_zone_id, title, description, image))
 
         self.database.connection.commit()
-    
+
     def fetch_zone_titles_for_optionmenu(self):
 
         self.database.cursor.execute('SELECT zone_title FROM zone_base_data')
         zone_titles = [row[0] for row in self.database.cursor.fetchall()]
         return zone_titles
-    
+
     def retrive_id_based_on_title(self, selected_title):
-        self.database.cursor.execute('SELECT id FROM zone_base_data WHERE zone_title = ?', (selected_title,))
+        self.database.cursor.execute(
+            'SELECT id FROM zone_base_data WHERE zone_title = ?', (selected_title,))
         next_view_id = self.database.cursor.fetchone()[0]
         return next_view_id

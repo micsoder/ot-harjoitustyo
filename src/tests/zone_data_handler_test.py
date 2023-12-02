@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import MagicMock
 from logic.zone_data_handler import ZoneDataHandler
 from tests.test_utility.test_database import TestDataBase
-from ui.dashboard_base_frame import DashboardBaseFrame
+from ui.map_dashboard import MapDashboard
 
 
 class TestZoneDataHandler(unittest.TestCase):

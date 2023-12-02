@@ -96,4 +96,3 @@ class MapDashboard(BaseFrame):
     def save_data(self):
         self.zone_data.save_data_from_dashboard_to_table(
             self.view_id, self.title.get(), self.description.get("1.0", "end-1c"))
-    

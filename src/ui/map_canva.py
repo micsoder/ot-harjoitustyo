@@ -23,7 +23,7 @@ class MapCanva():
             bg='#001220',
             width=self.width * 3/4,
             height=self.height * 26/27)
-        self.map_canva.pack(side = 'bottom', anchor='sw', fill = 'both', expand = 1)
+        self.map_canva.pack(side='bottom', anchor='sw', fill='both', expand=1)
 
     def update_image(self, view_id):
         self.clear_map_canvas()
@@ -38,16 +38,19 @@ class MapCanva():
             self.image = 'Marisong.png'
             title = 'Marisong'
             description = 'Description'
-            self.zone_data.add_image_data_to_table(self.view_id, title, description, self.image)
+            self.zone_data.add_image_data_to_table(
+                self.view_id, title, description, self.image)
         else:
             None
 
     def retrive_zone_image(self):
-        self.zone_image_file_name = self.zone_data.load_data_from_table_to_map(self.view_id)
+        self.zone_image_file_name = self.zone_data.load_data_from_table_to_map(
+            self.view_id)
 
         current_directory = os.path.dirname(os.path.abspath(__file__))
         project_directory = os.path.join(current_directory, '..')
-        image_path_relative = os.path.join('assets', self.zone_image_file_name[0])
+        image_path_relative = os.path.join(
+            'assets', self.zone_image_file_name[0])
         image_path = os.path.join(project_directory, image_path_relative)
 
         image_width = int(self.width * 3/4)
@@ -58,5 +61,3 @@ class MapCanva():
         self.image_label = customtkinter.CTkLabel(
             self.map_canva, image=self.zone_image, text='')
         self.image_label.place(x=0, y=0)
-
-

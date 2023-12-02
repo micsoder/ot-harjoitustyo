@@ -27,4 +27,4 @@ class UiHandler():
             LoginFrame(self.window, self.user_handler, self.switch_frame)
         if frame_id == 2:
             MapHandler(self.window, self.zone_data, self.screen_width,
-                           self.screen_height, self.switch_frame)
+                       self.screen_height, self.switch_frame)
