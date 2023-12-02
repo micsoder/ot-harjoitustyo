@@ -33,7 +33,7 @@ class ZoneDataHandler():
 
         self.database.connection.commit()
 
-    def add_image_data_to_table(self, view_id, title, description, image):
+    def add_base_image_to_table(self, view_id, title, description, image):
         self.database.cursor.execute(
             'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
         existing_data = self.database.cursor.fetchone()
@@ -48,14 +48,14 @@ class ZoneDataHandler():
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
 
-    def load_data_from_table_to_map(self, view_id):
+    def load_image_from_table_to_map(self, view_id):
         self.database.cursor.execute(
             'SELECT zone_image FROM zone_base_data WHERE id = ?', (view_id,))
         data = self.database.cursor.fetchone()
 
         return data
 
-    def save_map_information_to_table(self, view_id, title, description, image):
+    def save_new_zone_information_to_table(self, view_id, title, description, image):
 
         self.database.cursor.execute(
             'SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')

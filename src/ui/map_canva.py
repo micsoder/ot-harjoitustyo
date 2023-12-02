@@ -14,7 +14,7 @@ class MapCanva():
         self.height = height
 
         self.create_map_canva()
-        self.add_zone_image()
+        self.add_base_image()
         self.retrive_zone_image()
 
     def create_map_canva(self):
@@ -33,18 +33,18 @@ class MapCanva():
     def clear_map_canvas(self):
         self.map_canva.delete("all")
 
-    def add_zone_image(self):
+    def add_base_image(self):
         if self.view_id == 1:
             self.image = 'Marisong.png'
             title = 'Marisong'
             description = 'Description'
-            self.zone_data.add_image_data_to_table(
+            self.zone_data.add_base_image_to_table(
                 self.view_id, title, description, self.image)
         else:
             None
 
     def retrive_zone_image(self):
-        self.zone_image_file_name = self.zone_data.load_data_from_table_to_map(
+        self.zone_image_file_name = self.zone_data.load_image_from_table_to_map(
             self.view_id)
 
         current_directory = os.path.dirname(os.path.abspath(__file__))

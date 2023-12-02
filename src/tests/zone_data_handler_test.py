@@ -3,6 +3,8 @@ from unittest.mock import MagicMock
 from logic.zone_data_handler import ZoneDataHandler
 from tests.test_utility.test_database import TestDataBase
 from ui.map_dashboard import MapDashboard
+from ui.map_bar import MapBar
+from ui.map_canva import MapCanva
 
 
 class TestZoneDataHandler(unittest.TestCase):
@@ -28,3 +30,4 @@ class TestZoneDataHandler(unittest.TestCase):
 
         self.assertEqual(zone_title, 'Shire')
         self.assertEqual(zone_description, 'A place where Hobbits live')
+    
