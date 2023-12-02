@@ -47,6 +47,8 @@ class ZoneDataHandler():
             self.database.cursor.execute('''
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
+        
+        self.database.connection.commit()
 
     def load_image_from_table_to_map(self, view_id):
         self.database.cursor.execute(

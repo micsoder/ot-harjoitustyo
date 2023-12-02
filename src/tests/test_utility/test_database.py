@@ -1,5 +1,6 @@
 import sqlite3
 import os
+import time
 
 
 class TestDataBase:
@@ -10,7 +11,6 @@ class TestDataBase:
         self.database_path()
         self.connect_to_data_database()
         self.clear_database()
-        self.create_zone_base_data_table()
 
     def database_path(self):
 
@@ -25,12 +25,16 @@ class TestDataBase:
         print(self.db_path)
 
     def connect_to_data_database(self):
-        self.connection = sqlite3.connect('test_data.db')
+        self.connection = sqlite3.connect('test_data.db', check_same_thread=False)
         self.cursor = self.connection.cursor()
 
     def clear_database(self):
         self.cursor.execute('DROP TABLE IF EXISTS users')
+        self.cursor.execute('DROP TABLE IF EXISTS zone_base_data')
+        
         self.create_users_table()
+        self.create_zone_base_data_table()
+
 
     def create_users_table(self):
         self.cursor.execute('''
