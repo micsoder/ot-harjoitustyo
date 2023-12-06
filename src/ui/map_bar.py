@@ -3,10 +3,11 @@ import customtkinter
 
 class MapBar():
 
-    def __init__(self, current_map_page_id, window, zone_data, width, height, switch_frame):
+    def __init__(self, current_map_page_id, window, zone_data, map_page, width, height, switch_frame):
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
+        self.map_page = map_page
         self.width = width
         self.height = height
         self.switch_frame = switch_frame
@@ -15,6 +16,12 @@ class MapBar():
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()
         self.add_zone_button()
+        if self.current_map_page_id != 1:
+            color='#6EA149'
+        else:
+            color='#56793C'
+        self.go_back_to_previous_map_button(color)
+        self.exit_map_view_button()
 
     def create_map_bar_frame(self):
         self.map_bar_frame = customtkinter.CTkFrame(
@@ -40,17 +47,21 @@ class MapBar():
             command=self.optionmenu_callback
         )
 
-        option_combobox.place(x=950, y=2)
+        option_combobox.place(x=900, y=2)
 
     def optionmenu_callback(self, selected_title):
 
         self.next_map_page_id = self.zone_data.retrive_id_based_on_title(
             selected_title)
+        
+        self.switch_map_page_when_callback(self.next_map_page_id)
+    
+    def switch_map_page_when_callback(self, map_page_id):
 
         if callable(self.switch_frame):
             print('Now displaying the selected map!')
             self.map_bar_frame.destroy()
-            self.switch_frame(self.next_map_page_id)
+            self.switch_frame(map_page_id)
 
     def add_zone_button(self):
         self.add_zone_button = customtkinter.CTkButton(
@@ -160,3 +171,47 @@ class MapBar():
         self.information_frame.destroy()
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()
+
+    def go_back_to_previous_map_button(self, color):
+        self.go_back_button = customtkinter.CTkButton(
+            self.map_bar_frame,
+            command=self.go_back_to_previous_map,
+            text='Go back',
+            text_color='black',
+            bg_color='#3b5f7a',
+            fg_color=color,
+            border_color='#6EA149',
+            hover_color='#56793C',
+            cursor='hand2',
+            corner_radius=5,
+            width=30
+        )
+        self.go_back_button.place(x=1020, y=2)
+    
+    def go_back_to_previous_map(self):
+
+        if self.current_map_page_id != 1:
+
+            self.previous_map_page_id = self.map_page.fetch_zone_parent_for_current_map(self.current_map_page_id)
+            self.switch_map_page_when_callback(self.previous_map_page_id)
+        else: 
+            print('This is the parent map')
+
+    def exit_map_view_button(self):
+        self.exit_button = customtkinter.CTkButton(
+            self.map_bar_frame,
+            command=self.exit_map_view_return_to_login,
+            text='Exit map view',
+            text_color='black',
+            bg_color='#3b5f7a',
+            fg_color='#6EA149',
+            border_color='#6EA149',
+            hover_color='#56793C',
+            cursor='hand2',
+            corner_radius=5,
+            width=30
+        )
+        self.exit_button.place(x=5, y=2)       
+    
+    def exit_map_view_return_to_login(self):
+        print('will retunr to login menu')

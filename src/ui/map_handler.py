@@ -23,6 +23,6 @@ class MapHandler():
         self.map_canva.update_image(current_map_page_id)
 
         MapBar(current_map_page_id, self.window, self.zone_data,
-               self.width, self.height, self.switch_frame)
+                self.map_page, self.width, self.height, self.switch_frame)
         MapDashboard(current_map_page_id, self.window, self.zone_data,
                      self.width, self.height)
