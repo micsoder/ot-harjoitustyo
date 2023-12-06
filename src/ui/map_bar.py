@@ -3,8 +3,8 @@ import customtkinter
 
 class MapBar():
 
-    def __init__(self, view_id, window, zone_data, width, height, switch_frame):
-        self.view_id = view_id
+    def __init__(self, current_map_page_id, window, zone_data, width, height, switch_frame):
+        self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
         self.width = width
@@ -28,7 +28,7 @@ class MapBar():
 
     def fetch_zone_titles_for_optionmenu(self):
 
-        self.zone_titles_list = self.zone_data.fetch_zone_titles_for_optionmenu()
+        self.zone_titles_list = self.zone_data.fetch_zone_titles_for_optionmenu(self.current_map_page_id)
 
     def show_zone_options(self):
         optionmenu_var = customtkinter.StringVar(value='Show zone')
@@ -44,13 +44,13 @@ class MapBar():
 
     def optionmenu_callback(self, selected_title):
 
-        self.next_view_id = self.zone_data.retrive_id_based_on_title(
+        self.next_map_page_id = self.zone_data.retrive_id_based_on_title(
             selected_title)
 
         if callable(self.switch_frame):
             print('Now displaying the selected map!')
             self.map_bar_frame.destroy()
-            self.switch_frame(self.next_view_id)
+            self.switch_frame(self.next_map_page_id)
 
     def add_zone_button(self):
         self.add_zone_button = customtkinter.CTkButton(
@@ -156,7 +156,7 @@ class MapBar():
 
     def save_zone_information(self):
         self.zone_data.save_new_zone_information_to_table(
-            self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
+            self.current_map_page_id, self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
         self.information_frame.destroy()
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()

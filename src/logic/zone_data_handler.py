@@ -1,9 +1,10 @@
-
+from logic.map_page_handler import MapPageHandler
 
 class ZoneDataHandler():
 
     def __init__(self, database):
         self.database = database
+        self.map_page = MapPageHandler(self.database)
 
     def load_data_from_table_to_dashboard(self, view_id):
 
@@ -57,7 +58,8 @@ class ZoneDataHandler():
 
         return data
 
-    def save_new_zone_information_to_table(self, title, description, image):
+    def save_new_zone_information_to_table(self, current_map_page_id, title, description, image):
+        print(current_map_page_id)
 
         self.database.cursor.execute(
             'SELECT id FROM zone_base_data ORDER BY id DESC LIMIT 1')
@@ -81,9 +83,13 @@ class ZoneDataHandler():
 
         self.database.connection.commit()
 
-    def fetch_zone_titles_for_optionmenu(self):
+        self.map_page.save_map_page_id(current_map_page_id, new_zone_id)
 
-        self.database.cursor.execute('SELECT zone_title FROM zone_base_data')
+    def fetch_zone_titles_for_optionmenu(self, current_map_page_id):
+
+        zone_ids = self.map_page.fetch_zone_ids_within_current_map_id(current_map_page_id)
+
+        self.database.cursor.execute('SELECT zone_title FROM zone_base_data WHERE id IN ({})'.format(','.join(['?']*len(zone_ids))), zone_ids)
         zone_titles = [row[0] for row in self.database.cursor.fetchall()]
         return zone_titles
 

@@ -6,9 +6,9 @@ from logic.zone_data_handler import ZoneDataHandler
 
 class MapDashboard(BaseFrame):
 
-    def __init__(self, view_id, window, zone_data, width, height):
+    def __init__(self, current_map_page_id, window, zone_data, width, height):
         super().__init__()
-        self.view_id = view_id
+        self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
         self.width = width
@@ -89,10 +89,10 @@ class MapDashboard(BaseFrame):
 
     def load_data(self):
         zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(
-            self.view_id)
+            self.current_map_page_id)
         self.title.insert(0, zone_title)
         self.description.insert("1.0", zone_description)
 
     def save_data(self):
         self.zone_data.save_data_from_dashboard_to_table(
-            self.view_id, self.title.get(), self.description.get("1.0", "end-1c"))
+            self.current_map_page_id, self.title.get(), self.description.get("1.0", "end-1c"))

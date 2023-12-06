@@ -4,6 +4,7 @@ class CreateTables():
         self.database = database
         self.create_users_table()
         self.create_zone_base_data_table()
+        self.create_map_page_table()
 
     def create_users_table(self):
 
@@ -20,3 +21,11 @@ class CreateTables():
                 zone_title TEXT,
                 zone_description TEXT,
                 zone_image TEXT)''')
+
+    def create_map_page_table(self):
+
+        self.database.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS map_page (
+                map_id INTEGER,
+                zone_id INTEGER
+                )''')
