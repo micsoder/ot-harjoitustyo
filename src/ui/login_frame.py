@@ -14,8 +14,11 @@ class LoginFrame(BaseFrame):
         self.create_new_frame()
         self.create_username_entry()
         self.create_password_entry()
+
         self.create_login_label()
         self.create_login_button()
+        self.create_signup_label_to_next_page()
+        self.create_signup_next_page_button()
 
     def create_new_frame(self):
         self.frame = customtkinter.CTkFrame(
@@ -83,6 +86,28 @@ class LoginFrame(BaseFrame):
         )
         login_button2.place(x=200, y=220)
 
+    def create_signup_label_to_next_page(self):
+        signup_label = customtkinter.CTkLabel(
+            self.frame,
+            font=self.font3,
+            text="Don't have an account?",
+            text_color='#fff',
+            bg_color='#001220')
+        signup_label.place(x=200, y=250)
+
+    def create_signup_next_page_button(self):
+        signup_button = customtkinter.CTkButton(
+            self.frame,
+            command=self.signup_button_pressed,
+            font=self.font4,
+            text_color='#00bf77',
+            text='Sign up',
+            fg_color='#001220',
+            hover_color='#001220',
+            cursor='hand2',
+            width=40)
+        signup_button.place(x=395, y=250)
+
     def login_button_pressed(self):
         success, message = self.user_handler.login(
             self.username_entry.get(), self.password_entry.get())
@@ -90,6 +115,12 @@ class LoginFrame(BaseFrame):
             messagebox.showinfo(success, message)
             self.frame.destroy()
             if callable(self.switch_frame):
-                self.switch_frame(2)
+                self.switch_frame(3)
         else:
             messagebox.showerror(success, message)
+
+
+    def signup_button_pressed(self):
+        self.frame.destroy()
+        if callable(self.switch_frame):
+            self.switch_frame(2)

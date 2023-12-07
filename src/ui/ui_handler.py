@@ -23,13 +23,13 @@ class UiHandler():
         self.zone_data = ZoneDataHandler(self.database)
         self.map_page = MapPageHandler(self.database)
 
-        self.switch_frame(0)
+        self.switch_frame(1)
 
     def switch_frame(self, frame_id):
-        if frame_id == 0:
-            SignupFrame(self.window, self.user_handler, self.switch_frame)
         if frame_id == 1:
             LoginFrame(self.window, self.user_handler, self.switch_frame)
         if frame_id == 2:
+            SignupFrame(self.window, self.user_handler, self.switch_frame)
+        if frame_id == 3:
             MapHandler(self.window, self.zone_data, self.map_page, self.screen_width,
                        self.screen_height, self.switch_frame)
