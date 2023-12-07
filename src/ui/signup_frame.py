@@ -11,16 +11,16 @@ class SignupFrame(BaseFrame):
         self.user_handler = user_handler
         self.switch_frame = switch_frame
 
-        self.create_new_frame()
-        self.create_username_entry()
-        self.create_password_entry()
+        self.new_frame()
+        self.username_entry()
+        self.password_entry()
 
-        self.create_signup_label()
-        self.create_signup_button()
-        self.create_login_label_to_next_page()
-        self.create_login_next_page_button()
+        self.signup_label()
+        self.signup_button()
+        self.login_label_to_next_page()
+        self.login_button_to_next_page()
 
-    def create_new_frame(self):
+    def new_frame(self):
         self.frame = customtkinter.CTkFrame(
             self.window,
             bg_color='#001220',
@@ -29,8 +29,8 @@ class SignupFrame(BaseFrame):
             height=360)
         self.frame.place(x=480, y=200)
 
-    def create_username_entry(self):
-        self.username_entry = customtkinter.CTkEntry(
+    def username_entry(self):
+        self.username = customtkinter.CTkEntry(
             self.frame,
             font=self.font2,
             text_color='#fff',
@@ -42,10 +42,10 @@ class SignupFrame(BaseFrame):
             placeholder_text_color='#a3a3a3',
             width=200,
             height=50)
-        self.username_entry.place(x=200, y=80)
+        self.username.place(x=200, y=80)
 
-    def create_password_entry(self):
-        self.password_entry = customtkinter.CTkEntry(
+    def password_entry(self):
+        self.password = customtkinter.CTkEntry(
             self.frame,
             font=self.font2,
             show='*',
@@ -58,19 +58,19 @@ class SignupFrame(BaseFrame):
             placeholder_text_color='#a3a3a3',
             width=200,
             height=50)
-        self.password_entry.place(x=200, y=150)
+        self.password.place(x=200, y=150)
 
-    def create_signup_label(self):
-        signup_label = customtkinter.CTkLabel(
+    def signup_label(self):
+        label = customtkinter.CTkLabel(
             self.frame,
             font=self.font1,
             text='Create account',
             text_color='#fff',
             bg_color='#001220')
-        signup_label.place(x=200, y=20)
+        label.place(x=200, y=20)
 
-    def create_signup_button(self):
-        signup_button = customtkinter.CTkButton(
+    def signup_button(self):
+        button = customtkinter.CTkButton(
             self.frame,
             command=self.signup_button_pressed,
             font=self.font2,
@@ -82,9 +82,9 @@ class SignupFrame(BaseFrame):
             cursor='hand2',
             corner_radius=5,
             width=120)
-        signup_button.place(x=200, y=220)
+        button.place(x=200, y=220)
 
-    def create_login_label_to_next_page(self):
+    def login_label_to_next_page(self):
         login_label = customtkinter.CTkLabel(
             self.frame,
             font=self.font3,
@@ -93,7 +93,7 @@ class SignupFrame(BaseFrame):
             bg_color='#001220')
         login_label.place(x=200, y=250)
 
-    def create_login_next_page_button(self):
+    def login_button_to_next_page(self):
         login_button = customtkinter.CTkButton(
             self.frame,
             command=self.login_button_pressed,
@@ -108,7 +108,7 @@ class SignupFrame(BaseFrame):
 
     def signup_button_pressed(self):
         success, message = self.user_handler.create_account(
-            self.username_entry.get(), self.password_entry.get())
+            self.username.get(), self.password.get())
         if success == 'Success':
             messagebox.showinfo(success, message)
         else:
