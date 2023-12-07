@@ -235,3 +235,5 @@ class MapBar():
     
     def testing(self):
         print('This should exit the page')
+
+        self.switch_map_page_when_callback(False)

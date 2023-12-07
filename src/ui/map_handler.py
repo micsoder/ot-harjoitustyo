@@ -20,9 +20,14 @@ class MapHandler():
         self.switch_frame(current_map_page_id)
 
     def switch_frame(self, current_map_page_id):
-        self.map_canva.update_image(current_map_page_id)
+        if current_map_page_id == False:
+            if callable(self.switch_state):
+                self.switch_state(1)
+        
+        else:
+            self.map_canva.update_image(current_map_page_id)
 
-        MapBar(current_map_page_id, self.window, self.zone_data,
-                self.map_page, self.width, self.height, self.switch_frame)
-        MapDashboard(current_map_page_id, self.window, self.zone_data,
-                     self.width, self.height)
+            MapBar(current_map_page_id, self.window, self.zone_data,
+                    self.map_page, self.width, self.height, self.switch_frame)
+            MapDashboard(current_map_page_id, self.window, self.zone_data,
+                        self.width, self.height)

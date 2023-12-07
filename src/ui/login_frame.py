@@ -5,12 +5,15 @@ from ui.base_frame import BaseFrame
 
 class LoginFrame(BaseFrame):
 
-    def __init__(self, window, user_handler, switch_frame):
+    def __init__(self, window, user_handler, switch_frame, screen_width, screen_height):
         super().__init__()
         self.window = window
         self.user_handler = user_handler
         self.switch_frame = switch_frame
+        self.screen_width = screen_width
+        self.screen_height = screen_height
 
+        self.new_entire_frame()
         self.new_frame()
         self.username_entry()
         self.password_entry()
@@ -19,15 +22,29 @@ class LoginFrame(BaseFrame):
         self.login_button()
         self.signup_label_to_next_page()
         self.signup_button_to_next_page()
-
-    def new_frame(self):
-        self.frame = customtkinter.CTkFrame(
+    
+    def new_entire_frame(self):
+        self.entire_frame = customtkinter.CTkFrame(
             self.window,
             bg_color='#001220',
             fg_color='#001220',
+            width=self.screen_width,
+            height=self.screen_height
+        )
+        self.entire_frame.place(x=0, y=0)
+        
+
+    def new_frame(self):
+        self.frame = customtkinter.CTkFrame(
+            self.entire_frame,
+            bg_color='#001220',
+            fg_color='#001220',
             width=570,
-            height=360)
-        self.frame.place(x=480, y=200)
+            height=360
+        )
+
+        self.frame.pack_propagate(False)
+        self.frame.place(relx=0.5, rely=0.5, anchor='center')
 
     def username_entry(self):
         self.username = customtkinter.CTkEntry(
@@ -118,7 +135,6 @@ class LoginFrame(BaseFrame):
                 self.switch_frame(3)
         else:
             messagebox.showerror(success, message)
-
 
     def signup_button_pressed(self):
         self.frame.destroy()
