@@ -94,6 +94,7 @@ class MapBar():
         self.zone_image_file_entry()
         self.zone_description_entry()
         self.save_information_button()
+        self.cancel_zone_information_button()
 
     def zone_information_label(self):
         self.zone_label = customtkinter.CTkLabel(
@@ -172,6 +173,25 @@ class MapBar():
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()
 
+    def cancel_zone_information_button(self):
+        self.cancel_button = customtkinter.CTkButton(
+            self.information_frame,
+            text='Cancel',
+            command=self.cancel_adding_of_zone_information,
+            text_color='black',
+            bg_color='#FFFFFF',
+            fg_color='#6EA149',
+            border_color='#6EA149',
+            hover_color='#56793C',
+            cursor='hand2',
+            corner_radius=5,
+            width=30
+        )
+        self.cancel_button.place(x=60, y=210)
+
+    def cancel_adding_of_zone_information(self):
+        self.information_frame.destroy()
+
     def go_back_to_previous_map_button(self, color):
         self.go_back_button = customtkinter.CTkButton(
             self.map_bar_frame,
@@ -196,11 +216,11 @@ class MapBar():
             self.switch_map_page_when_callback(self.previous_map_page_id)
         else: 
             print('This is the parent map')
-
+    
     def exit_map_view_button(self):
         self.exit_button = customtkinter.CTkButton(
             self.map_bar_frame,
-            command=self.exit_map_view_return_to_login,
+            command=self.testing,
             text='Exit map view',
             text_color='black',
             bg_color='#3b5f7a',
@@ -211,7 +231,7 @@ class MapBar():
             corner_radius=5,
             width=30
         )
-        self.exit_button.place(x=5, y=2)       
+        self.exit_button.place(x=2, y=2)
     
-    def exit_map_view_return_to_login(self):
-        print('will retunr to login menu')
+    def testing(self):
+        print('This should exit the page')
