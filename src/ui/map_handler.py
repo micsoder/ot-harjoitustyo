@@ -5,17 +5,13 @@ from ui.map_bar import MapBar
 
 class MapHandler():
 
-    def __init__(self, window, zone_data, map_page, width, height, switch_state):
+    def __init__(self, window, zone_data, map_page, switch_state, ui_utility):
         self.window = window
         self.zone_data = zone_data
         self.map_page = map_page
-        self.width = width
-        self.height = height
         self.switch_state = switch_state
+        self.ui_utility = ui_utility
         current_map_page_id = 1
-
-        self.map_canva = MapCanva(
-            current_map_page_id, self.window, self.zone_data, self.width, self.height)
 
         self.switch_frame(current_map_page_id)
 
@@ -25,9 +21,7 @@ class MapHandler():
                 self.switch_state(1)
         
         else:
-            self.map_canva.update_image(current_map_page_id)
+            map_canva = MapCanva(current_map_page_id, self.window, self.zone_data, self.ui_utility)
+            map_dashboard = MapDashboard(current_map_page_id, self.window, self.zone_data, self.ui_utility)
 
-            MapBar(current_map_page_id, self.window, self.zone_data,
-                    self.map_page, self.width, self.height, self.switch_frame)
-            MapDashboard(current_map_page_id, self.window, self.zone_data,
-                        self.width, self.height)
+            MapBar(current_map_page_id, self.window, self.zone_data, self.map_page, self.switch_frame, self.ui_utility, map_canva, map_dashboard)

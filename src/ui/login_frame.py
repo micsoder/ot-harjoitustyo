@@ -3,15 +3,15 @@ from tkinter import messagebox
 from ui.base_frame import BaseFrame
 
 
+
 class LoginFrame(BaseFrame):
 
-    def __init__(self, window, user_handler, switch_frame, screen_width, screen_height):
+    def __init__(self, window, user_handler, switch_frame, ui_utility):
         super().__init__()
         self.window = window
         self.user_handler = user_handler
         self.switch_frame = switch_frame
-        self.screen_width = screen_width
-        self.screen_height = screen_height
+        self.ui_utility = ui_utility
 
         self.new_entire_frame()
         self.new_frame()
@@ -28,8 +28,8 @@ class LoginFrame(BaseFrame):
             self.window,
             bg_color='#001220',
             fg_color='#001220',
-            width=self.screen_width,
-            height=self.screen_height
+            width=self.ui_utility.screen_width,
+            height=self.ui_utility.screen_height
         )
         self.entire_frame.place(x=0, y=0)
         

@@ -1,16 +1,21 @@
 import customtkinter
 
 
+
 class MapBar():
 
-    def __init__(self, current_map_page_id, window, zone_data, map_page, width, height, switch_frame):
+    def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_canva, map_dashboard):
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
         self.map_page = map_page
-        self.width = width
-        self.height = height
         self.switch_frame = switch_frame
+        self.ui_utility = ui_utility
+        self.map_canva = map_canva
+        self.map_dashboard = map_dashboard
+
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 6)
+
 
         self.create_map_bar_frame()
         self.fetch_zone_titles_for_optionmenu()
@@ -28,8 +33,8 @@ class MapBar():
             self.window,
             bg_color='#3b5f7a',
             fg_color='#3b5f7a',
-            width=self.width * 3/4,
-            height=self.height * 1/27
+            width=self.width,
+            height=self.height
         )
         self.map_bar_frame.pack(anchor='nw')
 
@@ -46,8 +51,9 @@ class MapBar():
             variable=optionmenu_var,
             command=self.optionmenu_callback
         )
+        option_combobox.pack(side='right')
 
-        option_combobox.place(x=900, y=2)
+        option_combobox.place(x=self.width - 300, y=2)
 
     def optionmenu_callback(self, selected_title):
 
@@ -61,6 +67,8 @@ class MapBar():
         if callable(self.switch_frame):
             print('Now displaying the selected map!')
             self.map_bar_frame.destroy()
+            self.map_canva.map_canva.destroy()
+            self.map_dashboard.dashboard_frame.destroy()
             self.switch_frame(map_page_id)
 
     def add_zone_button(self):
@@ -77,7 +85,8 @@ class MapBar():
             corner_radius=5,
             width=30
         )
-        self.add_zone_button.place(x=1085, y=2)
+        self.add_zone_button.pack(side='right')
+        self.add_zone_button.place(x=self.width - 80, y=2)
 
     def zone_information_frame(self):
         self.information_frame = customtkinter.CTkFrame(
@@ -206,7 +215,7 @@ class MapBar():
             corner_radius=5,
             width=30
         )
-        self.go_back_button.place(x=1020, y=2)
+        self.go_back_button.place(x=self.width - 150, y=2)
     
     def go_back_to_previous_map(self):
 

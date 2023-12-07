@@ -8,16 +8,11 @@ from logic.map_page_handler import MapPageHandler
 
 class UiHandler():
 
-    def __init__(self, window, database):
+    def __init__(self, window, database, ui_utility):
 
         self.window = window
         self.database = database
-
-        # screen_width = self.window.winfo_screenwidth()
-        # screen_height = self.window.winfo_screenheight()
-
-        self.screen_width = 1536
-        self.screen_height = 864
+        self.ui_utility = ui_utility
 
         self.user_handler = UserHandler(self.database)
         self.zone_data = ZoneDataHandler(self.database)
@@ -27,9 +22,8 @@ class UiHandler():
 
     def switch_frame(self, frame_id):
         if frame_id == 1:
-            LoginFrame(self.window, self.user_handler, self.switch_frame, self.screen_width, self.screen_height)
+            LoginFrame(self.window, self.user_handler, self.switch_frame, self.ui_utility)
         if frame_id == 2:
-            SignupFrame(self.window, self.user_handler, self.switch_frame, self.screen_width, self.screen_height)
+            SignupFrame(self.window, self.user_handler, self.switch_frame, self.ui_utility)
         if frame_id == 3:
-            MapHandler(self.window, self.zone_data, self.map_page, self.screen_width,
-                       self.screen_height, self.switch_frame)
+            MapHandler(self.window, self.zone_data, self.map_page, self.switch_frame, self.ui_utility)

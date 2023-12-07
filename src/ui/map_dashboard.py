@@ -4,15 +4,18 @@ from database.create_tables import CreateTables
 from logic.zone_data_handler import ZoneDataHandler
 
 
+
 class MapDashboard(BaseFrame):
 
-    def __init__(self, current_map_page_id, window, zone_data, width, height):
+    def __init__(self, current_map_page_id, window, zone_data, ui_utility):
         super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
-        self.width = width
-        self.height = height
+        self.ui_utility = ui_utility
+
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(25, 100)
+        self.x, self.y = self.ui_utility.get_size_in_relation_to_window(75, 0)
 
         self.background_dashboard_frame()
         self.title_entry()
@@ -26,10 +29,11 @@ class MapDashboard(BaseFrame):
             self.window,
             bg_color='#3b5f7a',
             fg_color='#3b5f7a',
-            width=self.width * 1/4,
+            width=self.width,
             height=self.height
         )
-        self.dashboard_frame.place(x=self.width * 3/4, y=0)
+        #self.dashboard_frame.pack(side = 'right')
+        self.dashboard_frame.place(x=self.x, y=self.y)
 
     def title_entry(self):
         self.title = customtkinter.CTkEntry(

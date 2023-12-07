@@ -6,32 +6,26 @@ import os
 
 class MapCanva():
 
-    def __init__(self, current_map_page_id, window, zone_data, width, height):
+    def __init__(self, current_map_page_id, window, zone_data, ui_utility):
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
-        self.width = width
-        self.height = height
+        self.ui_utility = ui_utility
+
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 94)
 
         self.create_map_canva()
         self.add_base_image()
         self.retrive_zone_image()
 
     def create_map_canva(self):
-        self.map_canva = customtkinter.CTkCanvas(
+        self.map_canva = customtkinter.CTkFrame(
             self.window,
-            bg='#001220',
-            width=self.width * 3/4,
-            height=self.height * 26/27)
+            bg_color='#001220',
+            width=self.width,
+            height=self.height)
         self.map_canva.pack(side='bottom', anchor='sw', fill='both', expand=1)
 
-    def update_image(self, current_map_page_id):
-        self.clear_map_canvas()
-        self.current_map_page_id = current_map_page_id
-        self.retrive_zone_image()
-
-    def clear_map_canvas(self):
-        self.map_canva.delete("all")
 
     def add_base_image(self):
         if self.current_map_page_id == 1:
@@ -53,8 +47,8 @@ class MapCanva():
             'assets', self.zone_image_file_name[0])
         image_path = os.path.join(project_directory, image_path_relative)
 
-        image_width = int(self.width * 3/4)
-        image_height = int(self.height * 26/27)
+        image_width = int(self.width)
+        image_height = int(self.height)
 
         self.zone_image = customtkinter.CTkImage(
             light_image=Image.open(image_path), size=(image_width, image_height))
