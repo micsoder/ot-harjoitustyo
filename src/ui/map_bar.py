@@ -15,7 +15,7 @@ class MapBar():
         self.map_dashboard = map_dashboard
 
         self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
-
+        self.x, self.y =  self.ui_utility.get_size_in_relation_to_window(0, 0)
 
         self.create_map_bar_frame()
         self.fetch_zone_titles_for_optionmenu()
@@ -36,7 +36,7 @@ class MapBar():
             width=self.width,
             height=self.height
         )
-        self.map_bar_frame.pack(anchor='nw')
+        self.map_bar_frame.place(x = self.x, y = self.y)
 
     def fetch_zone_titles_for_optionmenu(self):
 
@@ -51,14 +51,12 @@ class MapBar():
             variable=optionmenu_var,
             command=self.optionmenu_callback
         )
-        option_combobox.pack(side='right')
 
         option_combobox.place(x=self.width - 280, y=2)
 
     def optionmenu_callback(self, selected_title):
 
-        self.next_map_page_id = self.zone_data.retrive_id_based_on_title(
-            selected_title)
+        self.next_map_page_id = self.zone_data.retrive_id_based_on_title(selected_title)
         
         self.switch_map_page_when_callback(self.next_map_page_id)
     
@@ -85,7 +83,7 @@ class MapBar():
             corner_radius=5,
             width=30
         )
-        self.add_zone_button.pack(side='right')
+
         self.add_zone_button.place(x=self.width - 70, y=2)
 
     def zone_information_frame(self):
@@ -243,6 +241,5 @@ class MapBar():
         self.exit_button.place(x=2, y=2)
     
     def testing(self):
-        print('This should exit the page')
 
         self.switch_map_page_when_callback(False)

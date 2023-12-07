@@ -38,16 +38,13 @@ class ZoneDataHandler():
         self.database.cursor.execute(
             'SELECT * FROM zone_base_data WHERE id = ?', (view_id,))
         existing_data = self.database.cursor.fetchone()
-
-        if existing_data:
-            self.database.cursor.execute('''
-                UPDATE zone_base_data
-                SET zone_title = ?, zone_description = ?, zone_image = ? 
-                WHERE id = ?''', (title, description, image, view_id))
-        else:
+        if not existing_data:
             self.database.cursor.execute('''
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
+        
+        else: 
+            None
 
         self.database.connection.commit()
 

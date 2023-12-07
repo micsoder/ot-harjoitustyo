@@ -27,7 +27,7 @@ class LoginFrame(BaseFrame):
         self.entire_frame = customtkinter.CTkFrame(
             self.window,
             bg_color='#001220',
-            fg_color='#001220',
+            fg_color='#121111',
             width=self.ui_utility.screen_width,
             height=self.ui_utility.screen_height
         )

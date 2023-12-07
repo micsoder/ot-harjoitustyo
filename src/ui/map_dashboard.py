@@ -32,7 +32,7 @@ class MapDashboard(BaseFrame):
             width=self.width,
             height=self.height
         )
-        #self.dashboard_frame.pack(side = 'right')
+
         self.dashboard_frame.place(x=self.x, y=self.y)
 
     def title_entry(self):

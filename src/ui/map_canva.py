@@ -16,7 +16,6 @@ class MapCanva():
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.create_map_canva()
-        self.add_base_image()
         self.retrive_zone_image()
 
     def create_map_canva(self):
@@ -26,16 +25,6 @@ class MapCanva():
             width=self.width,
             height=self.height)
         self.map_canva.place(x = self.x, y = self.y)
-
-    def add_base_image(self):
-        if self.current_map_page_id == 1:
-            self.image = 'Marisong.png'
-            title = 'Marisong'
-            description = 'Description'
-            self.zone_data.add_base_image_to_table(
-                self.current_map_page_id, title, description, self.image)
-        else:
-            None
 
     def retrive_zone_image(self):
         self.zone_image_file_name = self.zone_data.load_image_from_table_to_map(
