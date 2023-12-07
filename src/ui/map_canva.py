@@ -12,7 +12,8 @@ class MapCanva():
         self.zone_data = zone_data
         self.ui_utility = ui_utility
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 94)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 96)
+        self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.create_map_canva()
         self.add_base_image()
@@ -24,8 +25,7 @@ class MapCanva():
             bg_color='#001220',
             width=self.width,
             height=self.height)
-        self.map_canva.pack(side='bottom', anchor='sw', fill='both', expand=1)
-
+        self.map_canva.place(x = self.x, y = self.y)
 
     def add_base_image(self):
         if self.current_map_page_id == 1:

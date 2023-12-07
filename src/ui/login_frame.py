@@ -36,7 +36,7 @@ class LoginFrame(BaseFrame):
 
     def new_frame(self):
         self.frame = customtkinter.CTkFrame(
-            self.entire_frame,
+            self.window,
             bg_color='#001220',
             fg_color='#001220',
             width=570,

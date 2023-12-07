@@ -20,12 +20,12 @@ class Main():
     def create_root_window(self):
         self.window = customtkinter.CTk()
         self.window.title('Atlas')
-        self.window.attributes('-fullscreen',True)
 
         self.screen_width = self.window.winfo_screenwidth()
         self.screen_height = self.window.winfo_screenheight()
 
-        #self.window.geometry(f"{self.screen_width}x{self.screen_height}+0+0")
+        self.window.geometry(f"{self.screen_width}x{self.screen_height}+0+0")
+
         self.window.config(bg='#001220')
        
 

@@ -14,7 +14,7 @@ class MapBar():
         self.map_canva = map_canva
         self.map_dashboard = map_dashboard
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 6)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
 
 
         self.create_map_bar_frame()
@@ -53,7 +53,7 @@ class MapBar():
         )
         option_combobox.pack(side='right')
 
-        option_combobox.place(x=self.width - 300, y=2)
+        option_combobox.place(x=self.width - 280, y=2)
 
     def optionmenu_callback(self, selected_title):
 
@@ -86,7 +86,7 @@ class MapBar():
             width=30
         )
         self.add_zone_button.pack(side='right')
-        self.add_zone_button.place(x=self.width - 80, y=2)
+        self.add_zone_button.place(x=self.width - 70, y=2)
 
     def zone_information_frame(self):
         self.information_frame = customtkinter.CTkFrame(
@@ -215,7 +215,7 @@ class MapBar():
             corner_radius=5,
             width=30
         )
-        self.go_back_button.place(x=self.width - 150, y=2)
+        self.go_back_button.place(x=self.width - 140, y=2)
     
     def go_back_to_previous_map(self):
 
