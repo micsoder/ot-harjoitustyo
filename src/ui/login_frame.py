@@ -13,7 +13,6 @@ class LoginFrame(BaseFrame):
         self.switch_frame = switch_frame
         self.ui_utility = ui_utility
 
-        self.new_entire_frame()
         self.new_frame()
         self.username_entry()
         self.password_entry()
@@ -22,16 +21,6 @@ class LoginFrame(BaseFrame):
         self.login_button()
         self.signup_label_to_next_page()
         self.signup_button_to_next_page()
-    
-    def new_entire_frame(self):
-        self.entire_frame = customtkinter.CTkFrame(
-            self.window,
-            bg_color='#001220',
-            fg_color='#121111',
-            width=self.ui_utility.screen_width,
-            height=self.ui_utility.screen_height
-        )
-        self.entire_frame.place(x=0, y=0)
         
 
     def new_frame(self):

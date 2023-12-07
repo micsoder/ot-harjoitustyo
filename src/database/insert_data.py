@@ -7,6 +7,7 @@ class InsertData():
 
 
     def add_base_image(self):
+        
         base_id = 1
         image = 'Marisong.png'
         title = 'Marisong'
