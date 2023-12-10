@@ -22,8 +22,11 @@ class UiHandler():
 
     def switch_frame(self, frame_id):
         if frame_id == 1:
-            LoginFrame(self.window, self.user_handler, self.switch_frame, self.ui_utility)
+            LoginFrame(self.window, self.user_handler,
+                       self.switch_frame, self.ui_utility)
         if frame_id == 2:
-            SignupFrame(self.window, self.user_handler, self.switch_frame, self.ui_utility)
+            SignupFrame(self.window, self.user_handler,
+                        self.switch_frame, self.ui_utility)
         if frame_id == 3:
-            MapHandler(self.window, self.zone_data, self.map_page, self.switch_frame, self.ui_utility)
+            MapHandler(self.window, self.zone_data, self.map_page,
+                       self.switch_frame, self.ui_utility)

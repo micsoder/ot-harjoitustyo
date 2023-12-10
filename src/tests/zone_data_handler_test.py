@@ -5,6 +5,7 @@ from tests.test_utility.test_database import TestDataBase
 from ui.map_dashboard import MapDashboard
 from ui.map_bar import MapBar
 from ui.map_canva import MapCanva
+from logic.map_page_handler import MapPageHandler
 
 
 class TestZoneDataHandler(unittest.TestCase):
@@ -57,7 +58,7 @@ class TestZoneDataHandler(unittest.TestCase):
     def test_save_new_zone_information_to_table(self):
 
         self.zone_data.save_new_zone_information_to_table(
-            'Ruins', 'The ruins are older than time', 'Ruins.png')
+            1, 'Ruins', 'The ruins are older than time', 'Ruins.png')
 
         fetched_new_zone_data = self.test_database.cursor.execute(
             "SELECT zone_title, zone_description, zone_image FROM zone_base_data WHERE id = ?", (2,))
@@ -69,7 +70,7 @@ class TestZoneDataHandler(unittest.TestCase):
 
     def test_fetch_zone_titles_for_optionmenu(self):
 
-        zone_titles = self.zone_data.fetch_zone_titles_for_optionmenu()
+        zone_titles = self.zone_data.fetch_zone_titles_for_optionmenu(1)
         self.assertEqual(zone_titles, ['Marisong'])
 
     def test_retrive_id_based_on_title(self):

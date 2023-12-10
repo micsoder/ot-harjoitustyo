@@ -3,7 +3,6 @@ import customtkinter
 from ui.base_frame import BaseFrame
 
 
-
 class SignupFrame(BaseFrame):
 
     def __init__(self, window, user_handler, switch_frame, ui_utility):
@@ -20,7 +19,7 @@ class SignupFrame(BaseFrame):
         self.signup_label()
         self.signup_button()
         self.login_label_to_next_page()
-        self.login_button_to_next_page()   
+        self.login_button_to_next_page()
 
     def new_frame(self):
         self.frame = customtkinter.CTkFrame(
@@ -33,7 +32,6 @@ class SignupFrame(BaseFrame):
 
         self.frame.pack_propagate(False)
         self.frame.place(relx=0.5, rely=0.5, anchor='center')
-
 
     def username_entry(self):
         self.username = customtkinter.CTkEntry(

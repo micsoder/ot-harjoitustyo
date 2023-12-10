@@ -3,7 +3,6 @@ from tkinter import messagebox
 from ui.base_frame import BaseFrame
 
 
-
 class LoginFrame(BaseFrame):
 
     def __init__(self, window, user_handler, switch_frame, ui_utility):
@@ -21,7 +20,6 @@ class LoginFrame(BaseFrame):
         self.login_button()
         self.signup_label_to_next_page()
         self.signup_button_to_next_page()
-        
 
     def new_frame(self):
         self.frame = customtkinter.CTkFrame(

@@ -4,7 +4,6 @@ from database.create_tables import CreateTables
 from logic.zone_data_handler import ZoneDataHandler
 
 
-
 class MapDashboard(BaseFrame):
 
     def __init__(self, current_map_page_id, window, zone_data, ui_utility):
@@ -14,7 +13,8 @@ class MapDashboard(BaseFrame):
         self.zone_data = zone_data
         self.ui_utility = ui_utility
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(25, 100)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
+            25, 100)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(75, 0)
 
         self.background_dashboard_frame()

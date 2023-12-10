@@ -1,7 +1,6 @@
 import customtkinter
 
 
-
 class MapBar():
 
     def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_canva, map_dashboard):
@@ -14,17 +13,18 @@ class MapBar():
         self.map_canva = map_canva
         self.map_dashboard = map_dashboard
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
-        self.x, self.y =  self.ui_utility.get_size_in_relation_to_window(0, 0)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
+            75, 4)
+        self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 0)
 
         self.create_map_bar_frame()
         self.fetch_zone_titles_for_optionmenu()
         self.show_zone_options()
         self.add_zone_button()
         if self.current_map_page_id != 1:
-            color='#6EA149'
+            color = '#6EA149'
         else:
-            color='#56793C'
+            color = '#56793C'
         self.go_back_to_previous_map_button(color)
         self.exit_map_view_button()
 
@@ -36,11 +36,12 @@ class MapBar():
             width=self.width,
             height=self.height
         )
-        self.map_bar_frame.place(x = self.x, y = self.y)
+        self.map_bar_frame.place(x=self.x, y=self.y)
 
     def fetch_zone_titles_for_optionmenu(self):
 
-        self.zone_titles_list = self.zone_data.fetch_zone_titles_for_optionmenu(self.current_map_page_id)
+        self.zone_titles_list = self.zone_data.fetch_zone_titles_for_optionmenu(
+            self.current_map_page_id)
 
     def show_zone_options(self):
         optionmenu_var = customtkinter.StringVar(value='Show zone')
@@ -56,10 +57,11 @@ class MapBar():
 
     def optionmenu_callback(self, selected_title):
 
-        self.next_map_page_id = self.zone_data.retrive_id_based_on_title(selected_title)
-        
+        self.next_map_page_id = self.zone_data.retrive_id_based_on_title(
+            selected_title)
+
         self.switch_map_page_when_callback(self.next_map_page_id)
-    
+
     def switch_map_page_when_callback(self, map_page_id):
 
         if callable(self.switch_frame):
@@ -214,16 +216,17 @@ class MapBar():
             width=30
         )
         self.go_back_button.place(x=self.width - 140, y=2)
-    
+
     def go_back_to_previous_map(self):
 
         if self.current_map_page_id != 1:
 
-            self.previous_map_page_id = self.map_page.fetch_zone_parent_for_current_map(self.current_map_page_id)
+            self.previous_map_page_id = self.map_page.fetch_zone_parent_for_current_map(
+                self.current_map_page_id)
             self.switch_map_page_when_callback(self.previous_map_page_id)
-        else: 
+        else:
             print('This is the parent map')
-    
+
     def exit_map_view_button(self):
         self.exit_button = customtkinter.CTkButton(
             self.map_bar_frame,
@@ -239,7 +242,7 @@ class MapBar():
             width=30
         )
         self.exit_button.place(x=2, y=2)
-    
+
     def testing(self):
 
         self.switch_map_page_when_callback(False)

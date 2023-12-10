@@ -12,7 +12,8 @@ class MapCanva():
         self.zone_data = zone_data
         self.ui_utility = ui_utility
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 96)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
+            75, 96)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.create_map_canva()
@@ -24,7 +25,7 @@ class MapCanva():
             bg_color='#001220',
             width=self.width,
             height=self.height)
-        self.map_canva.place(x = self.x, y = self.y)
+        self.map_canva.place(x=self.x, y=self.y)
 
     def retrive_zone_image(self):
         self.zone_image_file_name = self.zone_data.load_image_from_table_to_map(

@@ -1,5 +1,6 @@
 from logic.map_page_handler import MapPageHandler
 
+
 class ZoneDataHandler():
 
     def __init__(self, database):
@@ -42,9 +43,9 @@ class ZoneDataHandler():
             self.database.cursor.execute('''
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
-        
-        else: 
-            None
+
+        # else:
+            # None
 
         self.database.connection.commit()
 
@@ -84,9 +85,12 @@ class ZoneDataHandler():
 
     def fetch_zone_titles_for_optionmenu(self, current_map_page_id):
 
-        zone_ids = self.map_page.fetch_zone_ids_within_current_map_id(current_map_page_id)
+        zone_ids = self.map_page.fetch_zone_ids_within_current_map_id(
+            current_map_page_id)
 
-        self.database.cursor.execute('SELECT zone_title FROM zone_base_data WHERE id IN ({})'.format(','.join(['?']*len(zone_ids))), zone_ids)
+        self.database.cursor.execute(
+            'SELECT zone_title FROM zone_base_data WHERE id IN ({})'.format(
+                ','.join(['?']*len(zone_ids))), zone_ids)
         zone_titles = [row[0] for row in self.database.cursor.fetchall()]
         return zone_titles
 

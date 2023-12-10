@@ -17,16 +17,19 @@ class MapHandler():
         base_data.add_base_image()
 
         current_map_page_id = 1
-        
+
         self.switch_frame(current_map_page_id)
 
     def switch_frame(self, current_map_page_id):
         if current_map_page_id == False:
             if callable(self.switch_state):
                 self.switch_state(1)
-        
-        else:
-            map_canva = MapCanva(current_map_page_id, self.window, self.zone_data, self.ui_utility)
-            map_dashboard = MapDashboard(current_map_page_id, self.window, self.zone_data, self.ui_utility)
 
-            MapBar(current_map_page_id, self.window, self.zone_data, self.map_page, self.switch_frame, self.ui_utility, map_canva, map_dashboard)
+        else:
+            map_canva = MapCanva(current_map_page_id,
+                                 self.window, self.zone_data, self.ui_utility)
+            map_dashboard = MapDashboard(
+                current_map_page_id, self.window, self.zone_data, self.ui_utility)
+
+            MapBar(current_map_page_id, self.window, self.zone_data, self.map_page,
+                   self.switch_frame, self.ui_utility, map_canva, map_dashboard)
