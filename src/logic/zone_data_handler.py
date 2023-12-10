@@ -92,6 +92,7 @@ class ZoneDataHandler():
             'SELECT zone_title FROM zone_base_data WHERE id IN ({})'.format(
                 ','.join(['?']*len(zone_ids))), zone_ids)
         zone_titles = [row[0] for row in self.database.cursor.fetchall()]
+
         return zone_titles
 
     def retrive_id_based_on_title(self, selected_title):

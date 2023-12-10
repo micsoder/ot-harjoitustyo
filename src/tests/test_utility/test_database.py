@@ -32,9 +32,11 @@ class TestDataBase:
     def clear_database(self):
         self.cursor.execute('DROP TABLE IF EXISTS users')
         self.cursor.execute('DROP TABLE IF EXISTS zone_base_data')
+        self.cursor.execute('DROP TABLE IF EXISTS map_page')
 
         self.create_users_table()
         self.create_zone_base_data_table()
+        self.create_map_page_table()
 
     def create_users_table(self):
         self.cursor.execute('''
@@ -49,3 +51,11 @@ class TestDataBase:
                 zone_title TEXT,
                 zone_description TEXT,
                 zone_image TEXT)''')
+
+    def create_map_page_table(self):
+
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS map_page (
+                map_id INTEGER,
+                zone_id INTEGER
+                )''')

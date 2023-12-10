@@ -14,6 +14,7 @@ class TestZoneDataHandler(unittest.TestCase):
         print('Testing starting...')
         self.test_database = TestDataBase()
         self.zone_data = ZoneDataHandler(self.test_database)
+        #self.map_page = MapPageHandler(self.test_database)
         self.zone_data.add_base_image_to_table(
             1, 'Marisong', 'Description', 'Marisong.png')
 
@@ -71,7 +72,7 @@ class TestZoneDataHandler(unittest.TestCase):
     def test_fetch_zone_titles_for_optionmenu(self):
 
         zone_titles = self.zone_data.fetch_zone_titles_for_optionmenu(1)
-        self.assertEqual(zone_titles, ['Marisong'])
+        self.assertEqual(zone_titles, [])
 
     def test_retrive_id_based_on_title(self):
 

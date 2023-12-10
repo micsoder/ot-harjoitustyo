@@ -18,7 +18,6 @@ class MapPageHandler():
         self.database.cursor.execute(
             'SELECT zone_id FROM map_page WHERE map_id = ?', (current_map_page_id,))
         zone_ids = [row[0] for row in self.database.cursor.fetchall()]
-
         return zone_ids
 
     def fetch_zone_parent_for_current_map(self, current_map_page_id):
