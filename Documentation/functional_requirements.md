@@ -32,6 +32,7 @@ The program starts from the login page, if the user doesn't have an account, the
 - [x] The user sees the first map page which is the most zoomed-out map view of the game map. On the right side of the page, there is a dashboard where information added to the map is viewed.
 - [x] (EDIT: When pressing **add zone** button on the bar, the user can add a new zone.) By mouse left-clicking, the map view zooms in on the particular place where the mouse is, and by mouse right-clicking, the map view zooms out.
 - [x] (EDIT: When pressing **show zones** on the bar, the user can choose which zone to show by selecting a zone from the dropdown menu.) By ctrl + right-click on a specific spot on the map, a drop-down menu appears which states the objects that can be added to the map on that location.
+- [x] Go back button which returns to the parent map page.  
 Example object that can be added to the map:
   * Information about a certain place
   * A short story/ lore about a location
@@ -39,7 +40,7 @@ Example object that can be added to the map:
 
 - Also, additional map layers containing specific information can be layered on the base map. The base map and the additional layers are not made in the program, they are imported into the program and made in a different software.
 - If the user hovers over an object with the mouse, the name of the object appears. 
-- After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
+- [x]After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
 
 ### The advanced functionalities
 ---
