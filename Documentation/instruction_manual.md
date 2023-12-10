@@ -35,6 +35,16 @@ poetry run invoke start
 
 ![UI](pictures/show_zone.PNG)
 
+### Show zone 
+![UI](pictures/Church.PNG)
+
 ### Go back
 
+![UI](pictures/show_zone.PNG)
+
+### Go back
 ![UI](pictures/main_view.PNG)
+
+### Exit map view
+
+![UI](pictures/login_frame.PNG)
