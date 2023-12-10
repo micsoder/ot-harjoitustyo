@@ -27,3 +27,11 @@
 - I did a Github release.
 - I did some documenting.
     
+### Week 6
+- I created show zone logic so that when one zone is shown, only the zones within that zone are shown in the option menu.
+- I created the go-back function
+- I created the exit map view function
+- I did so that the size of the widgets is adjusted to the screen size
+- I did some refactoring
+- I wrote some docstrings
+- I did an instruction manual 
