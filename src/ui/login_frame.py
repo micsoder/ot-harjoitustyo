@@ -49,8 +49,8 @@ class LoginFrame(BaseFrame):
         """Creates a new frame for the login interface."""
         self.frame = customtkinter.CTkFrame(
             self.window,
-            bg_color='#001220',
-            fg_color='#001220',
+            bg_color=self.dark_blue,
+            fg_color=self.dark_blue,
             width=570,
             height=360
         )
@@ -63,13 +63,13 @@ class LoginFrame(BaseFrame):
         self.username = customtkinter.CTkEntry(
             self.frame,
             font=self.font2,
-            text_color='#fff',
-            fg_color='#001a2e',
-            bg_color='#121111',
-            border_color='#004780',
+            text_color=self.white,
+            fg_color=self.midnight_blue,
+            bg_color=self.dark_grey_black,
+            border_color=self.ocean_blue,
             border_width=3,
             placeholder_text='Username',
-            placeholder_text_color='#a3a3a3',
+            placeholder_text_color=self.grey,
             width=200,
             height=50
         )
@@ -81,13 +81,13 @@ class LoginFrame(BaseFrame):
             self.frame,
             font=self.font2,
             show='*',
-            text_color='#fff',
-            fg_color='#001a2e',
-            bg_color='#121111',
-            border_color='#004780',
+            text_color=self.white,
+            fg_color=self.midnight_blue,
+            bg_color=self.dark_grey_black,
+            border_color=self.ocean_blue,
             border_width=3,
             placeholder_text='Password',
-            placeholder_text_color='#a3a3a3',
+            placeholder_text_color=self.grey,
             width=200,
             height=50
         )
@@ -99,8 +99,8 @@ class LoginFrame(BaseFrame):
             self.frame,
             font=self.font1,
             text='Log in',
-            text_color='#fff',
-            bg_color='#001220')
+            text_color=self.white,
+            bg_color=self.dark_blue)
         label.place(x=200, y=20)
 
     def login_button(self):
@@ -108,12 +108,13 @@ class LoginFrame(BaseFrame):
         button = customtkinter.CTkButton(
             self.frame,
             command=self.login_button_pressed,
-            font=self.font2, text_color='#fff',
+            font=self.font2, 
+            text_color=self.white,
             text='Log in',
-            fg_color='#00965d',
-            hover_color='#006e44',
-            bg_color='#121111',
-            cursor='hand2',
+            fg_color=self.dentist_green,
+            hover_color=self.dark_dentist_green,
+            bg_color=self.dark_grey_black,
+            cursor=self.hand2,
             corner_radius=5,
             width=120
         )
@@ -125,8 +126,8 @@ class LoginFrame(BaseFrame):
             self.frame,
             font=self.font3,
             text="Don't have an account?",
-            text_color='#fff',
-            bg_color='#001220')
+            text_color=self.white,
+            bg_color=self.dark_blue)
         signup_label.place(x=200, y=250)
 
     def signup_button_to_next_page(self):
@@ -135,11 +136,11 @@ class LoginFrame(BaseFrame):
             self.frame,
             command=self.signup_button_pressed,
             font=self.font4,
-            text_color='#00bf77',
+            text_color=self.light_dentist_green,
             text='Sign up',
-            fg_color='#001220',
-            hover_color='#001220',
-            cursor='hand2',
+            fg_color=self.dark_blue,
+            hover_color=self.dark_blue,
+            cursor=self.hand2,
             width=40)
         signup_button.place(x=395, y=250)
 

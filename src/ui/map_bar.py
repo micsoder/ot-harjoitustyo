@@ -1,9 +1,11 @@
 import customtkinter
+from ui.base_frame import BaseFrame
 
 
-class MapBar():
+class MapBar(BaseFrame):
 
     def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_canva, map_dashboard):
+        super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
@@ -13,8 +15,7 @@ class MapBar():
         self.map_canva = map_canva
         self.map_dashboard = map_dashboard
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
-            75, 4)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 0)
 
         self.create_map_bar_frame()
@@ -22,17 +23,17 @@ class MapBar():
         self.show_zone_options()
         self.add_zone_button()
         if self.current_map_page_id != 1:
-            color = '#6EA149'
+            color = self.light_olive_green
         else:
-            color = '#56793C'
+            color = self.dark_olive_green
         self.go_back_to_previous_map_button(color)
         self.exit_map_view_button()
 
     def create_map_bar_frame(self):
         self.map_bar_frame = customtkinter.CTkFrame(
             self.window,
-            bg_color='#3b5f7a',
-            fg_color='#3b5f7a',
+            bg_color=self.grey_blue,
+            fg_color=self.grey_blue,
             width=self.width,
             height=self.height
         )
@@ -76,12 +77,12 @@ class MapBar():
             self.map_bar_frame,
             command=self.zone_information_frame,
             text='Add zone',
-            text_color='black',
-            bg_color='#3b5f7a',
-            fg_color='#6EA149',
-            border_color='#6EA149',
-            hover_color='#56793C',
-            cursor='hand2',
+            text_color=self.black,
+            bg_color=self.grey_blue,
+            fg_color=self.light_olive_green,
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=30
         )
@@ -91,8 +92,8 @@ class MapBar():
     def zone_information_frame(self):
         self.information_frame = customtkinter.CTkFrame(
             self.window,
-            bg_color='#FFFFFF',
-            fg_color='#FFFFFF',
+            bg_color=self.white,
+            fg_color=self.white,
             width=250,
             height=250
         )
@@ -109,22 +110,22 @@ class MapBar():
         self.zone_label = customtkinter.CTkLabel(
             self.information_frame,
             text="Zone Information",
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#FFFFFF',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.white,
         )
         self.zone_label.place(x=10, y=5)
 
     def zone_title_entry(self):
         self.title = customtkinter.CTkEntry(
             self.information_frame,
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#E5F0DD',
-            border_color='#E5F0DD',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.light_sage,
+            border_color=self.light_sage,
             border_width=2,
             placeholder_text='Add title',
-            placeholder_text_color='#a3a3a3',
+            placeholder_text_color=self.grey,
             width=220,
             height=20
         )
@@ -133,13 +134,13 @@ class MapBar():
     def zone_image_file_entry(self):
         self.image_entry = customtkinter.CTkEntry(
             self.information_frame,
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#E5F0DD',
-            border_color='#E5F0DD',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.light_sage,
+            border_color=self.light_sage,
             border_width=2,
             placeholder_text='Add image filename',
-            placeholder_text_color='#a3a3a3',
+            placeholder_text_color=self.grey,
             width=220,
             height=20
         )
@@ -148,10 +149,10 @@ class MapBar():
     def zone_description_entry(self):
         self.zone_description = customtkinter.CTkTextbox(
             self.information_frame,
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#E5F0DD',
-            border_color='#E5F0DD',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.light_sage,
+            border_color=self.light_sage,
             border_width=2,
             width=220,
             height=100,
@@ -164,12 +165,12 @@ class MapBar():
             self.information_frame,
             text='Save',
             command=self.save_zone_information,
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#6EA149',
-            border_color='#6EA149',
-            hover_color='#56793C',
-            cursor='hand2',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.light_olive_green,
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=30
         )
@@ -187,12 +188,12 @@ class MapBar():
             self.information_frame,
             text='Cancel',
             command=self.cancel_adding_of_zone_information,
-            text_color='black',
-            bg_color='#FFFFFF',
-            fg_color='#6EA149',
-            border_color='#6EA149',
-            hover_color='#56793C',
-            cursor='hand2',
+            text_color=self.black,
+            bg_color=self.white,
+            fg_color=self.light_olive_green,
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=30
         )
@@ -206,12 +207,12 @@ class MapBar():
             self.map_bar_frame,
             command=self.go_back_to_previous_map,
             text='Go back',
-            text_color='black',
-            bg_color='#3b5f7a',
+            text_color=self.black,
+            bg_color=self.grey_blue,
             fg_color=color,
-            border_color='#6EA149',
-            hover_color='#56793C',
-            cursor='hand2',
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=30
         )
@@ -232,12 +233,12 @@ class MapBar():
             self.map_bar_frame,
             command=self.testing,
             text='Exit map view',
-            text_color='black',
-            bg_color='#3b5f7a',
-            fg_color='#6EA149',
-            border_color='#6EA149',
-            hover_color='#56793C',
-            cursor='hand2',
+            text_color=self.black,
+            bg_color=self.grey_blue,
+            fg_color=self.light_olive_green,
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=30
         )

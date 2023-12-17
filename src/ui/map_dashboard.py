@@ -27,8 +27,8 @@ class MapDashboard(BaseFrame):
     def background_dashboard_frame(self):
         self.dashboard_frame = customtkinter.CTkFrame(
             self.window,
-            bg_color='#3b5f7a',
-            fg_color='#3b5f7a',
+            bg_color=self.grey_blue,
+            fg_color=self.grey_blue,
             width=self.width,
             height=self.height
         )
@@ -39,13 +39,13 @@ class MapDashboard(BaseFrame):
         self.title = customtkinter.CTkEntry(
             self.dashboard_frame,
             font=self.font1,
-            text_color='#fff',
-            fg_color='#3b5f7a',
-            bg_color='#3b5f7a',
-            border_color='#fff',
+            text_color=self.white,
+            fg_color=self.grey_blue,
+            bg_color=self.grey_blue,
+            border_color=self.white,
             border_width=2,
             placeholder_text='Title of mapview',
-            placeholder_text_color='#a3a3a3',
+            placeholder_text_color=self.grey,
             width=350,
             height=70
         )
@@ -56,8 +56,8 @@ class MapDashboard(BaseFrame):
             self.dashboard_frame,
             text="Description",
             font=self.font2,
-            text_color='#fff',
-            bg_color='#3b5f7a'
+            text_color=self.white,
+            bg_color=self.grey_blue
         )
         self.desc_label.place(x=10, y=110)
 
@@ -65,10 +65,10 @@ class MapDashboard(BaseFrame):
         self.description = customtkinter.CTkTextbox(
             self.dashboard_frame,
             font=self.font3,
-            text_color='#fff',
-            fg_color='#3b5f7a',
-            bg_color='#3b5f7a',
-            border_color='#fff',
+            text_color=self.white,
+            fg_color=self.grey_blue,
+            bg_color=self.grey_blue,
+            border_color=self.white,
             border_width=2,
             width=350,
             height=300,
@@ -81,11 +81,11 @@ class MapDashboard(BaseFrame):
             text='Save',
             command=self.save_data,
             font=self.font2,
-            text_color='#fff',
-            bg_color='#3b5f7a',
-            fg_color='#00965d',
-            hover_color='#006e44',
-            cursor='hand2',
+            text_color=self.white,
+            bg_color=self.grey_blue,
+            fg_color=self.dentist_green,
+            hover_color=self.dark_dentist_green,
+            cursor=self.hand2,
             corner_radius=5,
             width=50
         )

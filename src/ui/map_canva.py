@@ -2,18 +2,19 @@ import customtkinter
 from PIL import Image, ImageTk
 import tkinter as tk
 import os
+from ui.base_frame import BaseFrame
 
 
-class MapCanva():
+class MapCanva(BaseFrame):
 
     def __init__(self, current_map_page_id, window, zone_data, ui_utility):
+        super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
         self.zone_data = zone_data
         self.ui_utility = ui_utility
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
-            75, 96)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 96)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.create_map_canva()
@@ -22,7 +23,7 @@ class MapCanva():
     def create_map_canva(self):
         self.map_canva = customtkinter.CTkFrame(
             self.window,
-            bg_color='#001220',
+            bg_color=self.dark_blue,
             width=self.width,
             height=self.height)
         self.map_canva.place(x=self.x, y=self.y)
