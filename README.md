@@ -9,9 +9,7 @@ Up to this stage, the program enables users to both create an account and log in
 
 **PS. 1)** My original idea was that a new zone is added so that the user mouse clicks on the map and a polygon is created around that area and then that area would have been shown by clicking on that area on the map. Unfortunately, I wasn't able to get it to work now so I made it a bit more static with the bar functions. 
 
-**PS. 2)** I am aware that now the account creation comes before the login page which is opposite from what I planned in the functional_requirements file but I am currently thinking about how I want it so it is purpose like that.
-
-**PS. 3)** I have made the map itself on the [inkarnate](https://inkarnate.com/maps/) website.
+**PS. 2)** I have made the map itself on the [inkarnate](https://inkarnate.com/maps/) website.
 
 
 ### Documentation
@@ -20,6 +18,7 @@ Up to this stage, the program enables users to both create an account and log in
 - [Record of working hours](Documentation/working_hours_record.md)
 - [Changelog](Documentation/changelog.md)
 - [Architecture](Documentation/architecture.md)
+- [Tests](Documentation/test_documentation.md)
 - [Week 5 release](https://github.com/micsoder/ot-harjoitustyo/releases/tag/week5)
 
 ### Installation guide
