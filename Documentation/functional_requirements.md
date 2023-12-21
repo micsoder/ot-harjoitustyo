@@ -9,13 +9,13 @@ The aim of this program is to aid the process of game development. The main feat
 
 ### The users
 ---
-There will be both an admin and a normal user, where the admin will have the right to do anything while the normal user's modification rights are limited. The admin can delete normal users and has access to program statistics.
+There will be both an admin and a normal user, where the admin will have the right to do any modification while the normal user cannot modify anything. 
 
 ### The user Interface (UI)
 ---
 The program has three main views; the login page, the create account page, and the map page. By zooming in and out on the map page, new map pages appear. 
 
-The program starts from the login page, if the user doesn't have an account, the user will have to create an account before logging in. After the user has logged in, the map page is seen with a dashboard to the right. By left-clicking the user can zoom in, by ctrl + right-clicking the user can add an object to the map, and by right-clicking the user can zoom out. To edit the dashboard, the user can press the edit button to change the information on the dashboard. The information on the dashboard corresponds to the object that is viewed on the map. To exit the program the user can press the exit button which takes the user back to the login page. 
+The program starts from the login page, if the user doesn't have an account, the user will have to create an account before logging in. After the user has logged in as an admin, the map page is seen with a dashboard to the right and a toolbar at the top of the window. **By left-clicking the user can zoom in, by ctrl + right-clicking the user can add an object to the map, and by right-clicking the user can zoom out. To edit the dashboard, the user can press the edit button to change the information on the dashboard. The information on the dashboard corresponds to the object that is viewed on the map. To exit the program the user can press the exit button which takes the user back to the login page.** 
 
 
 ![UI](pictures/ui_sketch_first_draft.png)
