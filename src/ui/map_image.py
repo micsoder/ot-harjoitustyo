@@ -6,8 +6,26 @@ from ui.base_frame import BaseFrame
 
 
 class MapImage(BaseFrame):
+    """
+    A class that creates a frame for map images and loads in the map image.
+
+    Attributes:
+    - current_map_page_id (int): The identifier for the current map page.
+    - window (tk.Tk): The main Tkinter window.
+    - zone_data: An object providing data related to zones.
+    - ui_utility: An instance of the UiUtility class for UI-related utility functions.
+    """
 
     def __init__(self, current_map_page_id, window, zone_data, ui_utility):
+        """
+        Initializes a new instance of the MapImage class.
+
+        Parameters:
+        - current_map_page_id (int): The identifier for the current map page.
+        - window (tk.Tk): The main Tkinter window.
+        - zone_data: An object providing data related to zones.
+        - ui_utility: An instance of the UiUtility class for UI-related utility functions.
+        """
         super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
@@ -21,6 +39,8 @@ class MapImage(BaseFrame):
         self.__retrive_zone_image()
 
     def __create_map_image_frame(self):
+        """ Private method to create the frame for displaying the map image."""
+        
         self.map_image_frame = customtkinter.CTkFrame(
             self.window,
             bg_color=self.dark_blue,
@@ -29,6 +49,8 @@ class MapImage(BaseFrame):
         self.map_image_frame.place(x=self.x, y=self.y)
 
     def __retrive_zone_image(self):
+        """Private method to retrieve and display the map image."""
+
         self.zone_image_file_name = self.zone_data.load_image_from_table_to_map(
             self.current_map_page_id)
 

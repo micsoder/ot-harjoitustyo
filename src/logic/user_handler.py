@@ -2,11 +2,38 @@ import bcrypt
 
 
 class UserHandler():
+    """
+    A class responsible for handling user account creation and login operations.
+
+    Attributes:
+    - database: An SQLite database connection and cursor.
+
+    Methods:
+    - __init__(self, database): Initializes the UserHandler with a database connection.
+    - create_account(self, username, password): Creates a new user account with the given username and password.
+    - login(self, username, password): Authenticates a user with the provided username and password.
+    """
 
     def __init__(self, database):
+        """
+        Initializes the UserHandler with a database connection.
+
+        Parameters:
+        - database: An SQLite database connection and cursor.
+        """
         self.database = database
 
     def create_account(self, username, password):
+        """
+        Creates a new user account with the given username and password.
+
+        Parameters:
+        - username (str): The username for the new account.
+        - password (str): The password for the new account.
+
+        Returns:
+        Tuple[str, str]: A tuple containing the success and message.
+        """
 
         if username != '' and password != '':
             self.database.cursor.execute(
@@ -25,6 +52,16 @@ class UserHandler():
             return ('Error', 'Enter all information.')
 
     def login(self, username, password):
+        """
+        Authenticates a user with the provided username and password.
+
+        Parameters:
+        - username (str): The username for authentication.
+        - password (str): The password for authentication. 
+                
+        Returns:
+        Tuple[str, str]: A tuple containing the success and message.
+        """
 
         if username != '' and password != '':
             self.database.cursor.execute(

@@ -5,8 +5,27 @@ from logic.zone_data_handler import ZoneDataHandler
 
 
 class MapDashboard(BaseFrame):
+    """
+    The class that creates the dashboard for managing zone-related information.
+
+    Attributes:
+    - current_map_page_id (int): The identifier for the current map page.
+    - window (tk.Tk): The main Tkinter window.
+    - zone_data (ZoneDataHandler): An object providing data handling for zones.
+    - ui_utility (UiUtility): An instance of the UiUtility class for UI-related utility functions.
+    """
 
     def __init__(self, current_map_page_id, window, zone_data, ui_utility):
+        """
+        Initializes a new instance of the MapDashboard class.
+
+        Parameters:
+        - current_map_page_id (int): The identifier for the current map page.
+        - window (tk.Tk): The main Tkinter window.
+        - zone_data (ZoneDataHandler): An object providing data handling for zones.
+        - ui_utility (UiUtility): An instance of the UiUtility class for UI-related utility functions.
+        """
+
         super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
@@ -25,6 +44,8 @@ class MapDashboard(BaseFrame):
         self.__load_data()
 
     def __background_dashboard_frame(self):
+        """Private method to create the frame for the dashboard."""
+
         self.dashboard_frame = customtkinter.CTkFrame(
             self.window,
             bg_color=self.grey_blue,
@@ -36,6 +57,8 @@ class MapDashboard(BaseFrame):
         self.dashboard_frame.place(x=self.x, y=self.y)
 
     def __title_entry(self):
+        """Private method to create the title entry widget in the dashboard."""
+        
         self.title = customtkinter.CTkEntry(
             self.dashboard_frame,
             font=self.font1,
@@ -52,6 +75,8 @@ class MapDashboard(BaseFrame):
         self.title.place(x=10, y=20)
 
     def __label(self):
+        """Private method to create the description label in the dashboard."""
+
         self.desc_label = customtkinter.CTkLabel(
             self.dashboard_frame,
             text="Description",
@@ -62,6 +87,8 @@ class MapDashboard(BaseFrame):
         self.desc_label.place(x=10, y=110)
 
     def __add_text_to_dashboard(self):
+        """Private method to create the description text box in the dashboard."""
+
         self.description = customtkinter.CTkTextbox(
             self.dashboard_frame,
             font=self.font3,
@@ -76,6 +103,8 @@ class MapDashboard(BaseFrame):
         self.description.place(x=10, y=150)
 
     def __save_text_button(self):
+        """Private method to create the save button in the dashboard."""
+
         self.save_button = customtkinter.CTkButton(
             self.dashboard_frame,
             text='Save',
@@ -92,11 +121,15 @@ class MapDashboard(BaseFrame):
         self.save_button.place(x=10, y=760)
 
     def __load_data(self):
+        """ Private method to load data from the the zone_base_data table to the dashboard."""
+
         zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(
             self.current_map_page_id)
         self.title.insert(0, zone_title)
         self.description.insert("1.0", zone_description)
 
     def __save_data(self):
+        """Private method to save data from the dashboard to the zone."""
+
         self.zone_data.save_data_from_dashboard_to_table(
             self.current_map_page_id, self.title.get(), self.description.get("1.0", "end-1c"))
