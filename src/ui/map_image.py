@@ -32,7 +32,8 @@ class MapImage(BaseFrame):
         self.zone_data = zone_data
         self.ui_utility = ui_utility
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 96)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
+            75, 96)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.__create_map_image_frame()
@@ -40,7 +41,7 @@ class MapImage(BaseFrame):
 
     def __create_map_image_frame(self):
         """ Private method to create the frame for displaying the map image."""
-        
+
         self.map_image_frame = customtkinter.CTkFrame(
             self.window,
             bg_color=self.dark_blue,

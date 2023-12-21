@@ -4,6 +4,7 @@ import os
 
 class DataBase():
     """A simple class to manage connections to an SQLite database."""
+
     def __init__(self):
         """
         Initializes a new instance of the DataBase class.

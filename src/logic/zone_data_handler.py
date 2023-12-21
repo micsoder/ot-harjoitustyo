@@ -183,7 +183,7 @@ class ZoneDataHandler():
         Returns:
         int: The ID of the selected zone.
         """
-        
+
         self.database.cursor.execute(
             'SELECT id FROM zone_base_data WHERE zone_title = ?', (selected_title,))
         next_view_id = self.database.cursor.fetchone()[0]

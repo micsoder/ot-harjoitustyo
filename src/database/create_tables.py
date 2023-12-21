@@ -38,7 +38,7 @@ class CreateTables():
 
     def __create_map_page_table(self):
         """Private method to create the 'map_page' table in the SQLite database."""
-        
+
         self.database.cursor.execute('''
             CREATE TABLE IF NOT EXISTS map_page (
                 map_id INTEGER,

@@ -28,6 +28,7 @@ class LoginFrame(BaseFrame):
         login_button_pressed(self): Handles the login button press event.
         signup_button_pressed(self): Handles the signup button press event.
     """
+
     def __init__(self, window, user_handler, switch_frame, ui_utility):
         """Initializes the LoginFrame with the provided parameters."""
         super().__init__()
@@ -108,7 +109,7 @@ class LoginFrame(BaseFrame):
         button = customtkinter.CTkButton(
             self.frame,
             command=self.__login_button_pressed,
-            font=self.font2, 
+            font=self.font2,
             text_color=self.white,
             text='Log in',
             fg_color=self.dentist_green,

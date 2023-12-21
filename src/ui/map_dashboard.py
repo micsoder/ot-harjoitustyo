@@ -58,7 +58,7 @@ class MapDashboard(BaseFrame):
 
     def __title_entry(self):
         """Private method to create the title entry widget in the dashboard."""
-        
+
         self.title = customtkinter.CTkEntry(
             self.dashboard_frame,
             font=self.font1,

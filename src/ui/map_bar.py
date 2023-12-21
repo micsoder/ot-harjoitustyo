@@ -44,7 +44,8 @@ class MapBar(BaseFrame):
         self.map_image = map_image
         self.map_dashboard = map_dashboard
 
-        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
+        self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
+            75, 4)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 0)
 
         self.__create_map_bar_frame()
@@ -237,11 +238,10 @@ class MapBar(BaseFrame):
             self.information_frame.destroy()
             self.__fetch_zone_titles_for_optionmenu()
             self.__show_zone_options()
-        
+
         if state == False:
             error_message = "Filename does not exist in Assets, add filename again"
             messagebox.showerror("Error", error_message)
-
 
     def __check_if_image_filename_in_assets(self):
         """Private method that checks if the image file name is in the assets folder."""
@@ -256,7 +256,6 @@ class MapBar(BaseFrame):
             return True
         else:
             return False
-
 
     def __cancel_zone_information_button(self):
         """Private method to create the 'Cancel' button for canceling zone information entry."""

@@ -58,7 +58,7 @@ class UserHandler():
         Parameters:
         - username (str): The username for authentication.
         - password (str): The password for authentication. 
-                
+
         Returns:
         Tuple[str, str]: A tuple containing the success and message.
         """
