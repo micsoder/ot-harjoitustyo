@@ -1,4 +1,6 @@
 import customtkinter
+import os
+from tkinter import messagebox
 from ui.base_frame import BaseFrame
 
 
@@ -58,7 +60,7 @@ class MapBar(BaseFrame):
 
     def __create_map_bar_frame(self):
         """Private method to create the frame for the map toolbar."""
-        
+
         self.map_bar_frame = customtkinter.CTkFrame(
             self.window,
             bg_color=self.grey_blue,
@@ -227,11 +229,34 @@ class MapBar(BaseFrame):
     def __save_zone_information(self):
         """Private method to save new zone information to the database."""
 
-        self.zone_data.save_new_zone_information_to_table(
-            self.current_map_page_id, self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
-        self.information_frame.destroy()
-        self.__fetch_zone_titles_for_optionmenu()
-        self.__show_zone_options()
+        state = self.__check_if_image_filename_in_assets()
+
+        if state == True:
+            self.zone_data.save_new_zone_information_to_table(
+                self.current_map_page_id, self.title.get(), self.zone_description.get("1.0", "end-1c"), self.image_entry.get())
+            self.information_frame.destroy()
+            self.__fetch_zone_titles_for_optionmenu()
+            self.__show_zone_options()
+        
+        if state == False:
+            error_message = "Filename does not exist in Assets, add filename again"
+            messagebox.showerror("Error", error_message)
+
+
+    def __check_if_image_filename_in_assets(self):
+        """Private method that checks if the image file name is in the assets folder."""
+        filename = self.image_entry.get()
+
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        project_directory = os.path.join(current_directory, '..')
+        image_path_relative = os.path.join('assets', filename)
+        image_path = os.path.join(project_directory, image_path_relative)
+
+        if os.path.exists(image_path):
+            return True
+        else:
+            return False
+
 
     def __cancel_zone_information_button(self):
         """Private method to create the 'Cancel' button for canceling zone information entry."""
