@@ -1,5 +1,5 @@
 from ui.map_dashboard import MapDashboard
-from ui.map_canva import MapCanva
+from ui.map_image import MapImage
 from ui.map_bar import MapBar
 from database.insert_data import InsertData
 
@@ -65,10 +65,10 @@ class MapHandler():
                 self.switch_state(1)
 
         else:
-            map_canva = MapCanva(current_map_page_id,
+            map_image = MapImage(current_map_page_id,
                                  self.window, self.zone_data, self.ui_utility)
             map_dashboard = MapDashboard(
                 current_map_page_id, self.window, self.zone_data, self.ui_utility)
 
             MapBar(current_map_page_id, self.window, self.zone_data, self.map_page,
-                   self.switch_frame, self.ui_utility, map_canva, map_dashboard)
+                   self.switch_frame, self.ui_utility, map_image, map_dashboard)

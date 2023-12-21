@@ -4,7 +4,7 @@ from ui.base_frame import BaseFrame
 
 class MapBar(BaseFrame):
 
-    def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_canva, map_dashboard):
+    def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_image, map_dashboard):
         super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
@@ -12,7 +12,7 @@ class MapBar(BaseFrame):
         self.map_page = map_page
         self.switch_frame = switch_frame
         self.ui_utility = ui_utility
-        self.map_canva = map_canva
+        self.map_image = map_image
         self.map_dashboard = map_dashboard
 
         self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 4)
@@ -68,7 +68,7 @@ class MapBar(BaseFrame):
         if callable(self.switch_frame):
             print('Now displaying the selected map!')
             self.map_bar_frame.destroy()
-            self.map_canva.map_canva.destroy()
+            self.map_image.map_image_frame.destroy()
             self.map_dashboard.dashboard_frame.destroy()
             self.switch_frame(map_page_id)
 
