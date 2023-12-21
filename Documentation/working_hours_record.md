@@ -14,4 +14,6 @@
 | 6.12 | 8 | I create the show zone logic|
 | 7.12 | 8 | I continued on the show zone logic and created the exit map view and go back logic.|
 | 10.22 | 4 | I did some test fixing, documentation, and instruction manual and tried my program in Cubbli.|
-| Sum of hours | 84h | -|
+| 21.12 | 6 | Added docstrings, made methods private, and added code that gives an error message if the filename is not found in assets folder.|
+| 22.22 | - |-|
+| Sum of hours | 90h | -|
