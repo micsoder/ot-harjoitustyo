@@ -37,24 +37,31 @@ Example object that can be added to the map:
   * Information about a certain place
   * A short story/ lore about a location
   * Quests
-
-- Also, additional map layers containing specific information can be layered on the base map. The base map and the additional layers are not made in the program, they are imported into the program and made in a different software.
-- If the user hovers over an object with the mouse, the name of the object appears. 
-- [x]After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
+ 
+- [x] After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
 
 ### The advanced functionalities
 ---
+Unfortunately, I did not have time during the course to add all these advanced functionalities but as this program is part of a bigger project that I am in, I will continue developing it in my spare time and then, add all the below functionalities and more :) 
 - Further development of the program could be
   * Adding of NPCs
   * Additional map layers
+  * If the user hovers over an object with the mouse, the name of the object appears.
 
 ### The technologies used
 ---
 
-This program will be developed using Visual Studio Code as editor and Python as the programming language. Windows is the operative system but it will be ensured that the program also works on the Linux operative system. PostgreSQL will most likely be used for data storage.
+This program will be developed using Visual Studio Code as editor and Python as the programming language. Windows is the operative system but it will be ensured that the program also works on the Linux operative system. Sqlite3 is used for data storage.
 
 Other dependencies: 
-- ?
+- Custom tkinter
+- bcrypt
+- pillow
+- autopep8
+- pylint
+- pytest
+- packaging
+- invoke
 
 
 
