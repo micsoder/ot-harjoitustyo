@@ -17,14 +17,14 @@ class MapDashboard(BaseFrame):
             25, 100)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(75, 0)
 
-        self.background_dashboard_frame()
-        self.title_entry()
-        self.label()
-        self.add_text_to_dashboard()
-        self.save_text_button()
-        self.load_data()
+        self.__background_dashboard_frame()
+        self.__title_entry()
+        self.__label()
+        self.__add_text_to_dashboard()
+        self.__save_text_button()
+        self.__load_data()
 
-    def background_dashboard_frame(self):
+    def __background_dashboard_frame(self):
         self.dashboard_frame = customtkinter.CTkFrame(
             self.window,
             bg_color=self.grey_blue,
@@ -35,7 +35,7 @@ class MapDashboard(BaseFrame):
 
         self.dashboard_frame.place(x=self.x, y=self.y)
 
-    def title_entry(self):
+    def __title_entry(self):
         self.title = customtkinter.CTkEntry(
             self.dashboard_frame,
             font=self.font1,
@@ -51,7 +51,7 @@ class MapDashboard(BaseFrame):
         )
         self.title.place(x=10, y=20)
 
-    def label(self):
+    def __label(self):
         self.desc_label = customtkinter.CTkLabel(
             self.dashboard_frame,
             text="Description",
@@ -61,7 +61,7 @@ class MapDashboard(BaseFrame):
         )
         self.desc_label.place(x=10, y=110)
 
-    def add_text_to_dashboard(self):
+    def __add_text_to_dashboard(self):
         self.description = customtkinter.CTkTextbox(
             self.dashboard_frame,
             font=self.font3,
@@ -75,11 +75,11 @@ class MapDashboard(BaseFrame):
             wrap='word')
         self.description.place(x=10, y=150)
 
-    def save_text_button(self):
+    def __save_text_button(self):
         self.save_button = customtkinter.CTkButton(
             self.dashboard_frame,
             text='Save',
-            command=self.save_data,
+            command=self.__save_data,
             font=self.font2,
             text_color=self.white,
             bg_color=self.grey_blue,
@@ -91,12 +91,12 @@ class MapDashboard(BaseFrame):
         )
         self.save_button.place(x=10, y=760)
 
-    def load_data(self):
+    def __load_data(self):
         zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(
             self.current_map_page_id)
         self.title.insert(0, zone_title)
         self.description.insert("1.0", zone_description)
 
-    def save_data(self):
+    def __save_data(self):
         self.zone_data.save_data_from_dashboard_to_table(
             self.current_map_page_id, self.title.get(), self.description.get("1.0", "end-1c"))

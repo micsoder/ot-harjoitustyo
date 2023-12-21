@@ -36,16 +36,16 @@ class LoginFrame(BaseFrame):
         self.switch_frame = switch_frame
         self.ui_utility = ui_utility
 
-        self.new_frame()
-        self.username_entry()
-        self.password_entry()
+        self.__new_frame()
+        self.__username_entry()
+        self.__password_entry()
 
-        self.login_label()
-        self.login_button()
-        self.signup_label_to_next_page()
-        self.signup_button_to_next_page()
+        self.__login_label()
+        self.__login_button()
+        self.__signup_label_to_next_page()
+        self.__signup_button_to_next_page()
 
-    def new_frame(self):
+    def __new_frame(self):
         """Creates a new frame for the login interface."""
         self.frame = customtkinter.CTkFrame(
             self.window,
@@ -58,7 +58,7 @@ class LoginFrame(BaseFrame):
         self.frame.pack_propagate(False)
         self.frame.place(relx=0.5, rely=0.5, anchor='center')
 
-    def username_entry(self):
+    def __username_entry(self):
         """Creates an entry field for the username."""
         self.username = customtkinter.CTkEntry(
             self.frame,
@@ -75,7 +75,7 @@ class LoginFrame(BaseFrame):
         )
         self.username.place(x=200, y=80)
 
-    def password_entry(self):
+    def __password_entry(self):
         """Creates an entry field for the password."""
         self.password = customtkinter.CTkEntry(
             self.frame,
@@ -93,7 +93,7 @@ class LoginFrame(BaseFrame):
         )
         self.password.place(x=200, y=150)
 
-    def login_label(self):
+    def __login_label(self):
         """Creates a label for the login section."""
         label = customtkinter.CTkLabel(
             self.frame,
@@ -103,11 +103,11 @@ class LoginFrame(BaseFrame):
             bg_color=self.dark_blue)
         label.place(x=200, y=20)
 
-    def login_button(self):
+    def __login_button(self):
         """Creates a button for initiating the login process."""
         button = customtkinter.CTkButton(
             self.frame,
-            command=self.login_button_pressed,
+            command=self.__login_button_pressed,
             font=self.font2, 
             text_color=self.white,
             text='Log in',
@@ -120,7 +120,7 @@ class LoginFrame(BaseFrame):
         )
         button.place(x=200, y=220)
 
-    def signup_label_to_next_page(self):
+    def __signup_label_to_next_page(self):
         """Creates a label prompting users to sign up."""
         signup_label = customtkinter.CTkLabel(
             self.frame,
@@ -130,11 +130,11 @@ class LoginFrame(BaseFrame):
             bg_color=self.dark_blue)
         signup_label.place(x=200, y=250)
 
-    def signup_button_to_next_page(self):
+    def __signup_button_to_next_page(self):
         """Creates a button for navigating to the signup page."""
         signup_button = customtkinter.CTkButton(
             self.frame,
-            command=self.signup_button_pressed,
+            command=self.__signup_button_pressed,
             font=self.font4,
             text_color=self.light_dentist_green,
             text='Sign up',
@@ -144,7 +144,7 @@ class LoginFrame(BaseFrame):
             width=40)
         signup_button.place(x=395, y=250)
 
-    def login_button_pressed(self):
+    def __login_button_pressed(self):
         """Handles the login button press event by calling the user_handler logic."""
         success, message = self.user_handler.login(
             self.username.get(), self.password.get())
@@ -156,7 +156,7 @@ class LoginFrame(BaseFrame):
         else:
             messagebox.showerror(success, message)
 
-    def signup_button_pressed(self):
+    def __signup_button_pressed(self):
         """Handles the signup button press event by destroying the current frame and calling the switch_frame method with the next frame_id."""
         self.frame.destroy()
         if callable(self.switch_frame):

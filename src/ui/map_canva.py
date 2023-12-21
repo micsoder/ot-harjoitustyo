@@ -17,10 +17,10 @@ class MapCanva(BaseFrame):
         self.width, self.height = self.ui_utility.get_size_in_relation_to_window(75, 96)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
-        self.create_map_canva()
-        self.retrive_zone_image()
+        self.__create_map_canva()
+        self.__retrive_zone_image()
 
-    def create_map_canva(self):
+    def __create_map_canva(self):
         self.map_canva = customtkinter.CTkFrame(
             self.window,
             bg_color=self.dark_blue,
@@ -28,7 +28,7 @@ class MapCanva(BaseFrame):
             height=self.height)
         self.map_canva.place(x=self.x, y=self.y)
 
-    def retrive_zone_image(self):
+    def __retrive_zone_image(self):
         self.zone_image_file_name = self.zone_data.load_image_from_table_to_map(
             self.current_map_page_id)
 

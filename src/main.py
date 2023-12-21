@@ -29,14 +29,14 @@ class Main():
 
     def __init__(self):
         """Initialize the main components of the Atlas application."""
-        self.create_root_window()
-        self.create_database_connection()
-        self.create_all_tables()
-        self.create_ui_utility()
-        self.initialize_ui_view()
+        self.__create_root_window()
+        self.__create_database_connection()
+        self.__create_all_tables()
+        self.__create_ui_utility()
+        self.__initialize_ui_view()
         self.window.mainloop()
 
-    def create_root_window(self):
+    def __create_root_window(self):
         """Create and configure the main application window."""
         self.window = customtkinter.CTk()
         self.window.title('Atlas')
@@ -47,18 +47,18 @@ class Main():
         self.window.geometry(f"{self.screen_width}x{self.screen_height}+0+0")
         self.window.config(bg='#001220')
 
-    def create_database_connection(self):
+    def __create_database_connection(self):
         """Establish a connection to the application database."""
         self.database = DataBase()
 
-    def create_all_tables(self):
+    def __create_all_tables(self):
         """Initialize the creation of all necessary database tables."""
         CreateTables(self.database)
 
-    def create_ui_utility(self):
+    def __create_ui_utility(self):
         """Create an instance of UiUtility to manage UI-related functionalities."""
         self.ui_utility = UiUtility(self.screen_width, self.screen_height)
 
-    def initialize_ui_view(self):
+    def __initialize_ui_view(self):
         """Initiate the UI view handler to manage the user interface."""
         UiHandler(self.window, self.database, self.ui_utility)
