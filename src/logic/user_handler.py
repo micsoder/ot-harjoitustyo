@@ -39,7 +39,7 @@ class UserHandler():
         """
 
         if username == '' or password == '':
-            return ("Error", "Enter all information")
+            return ("Error", "Enter all information.")
 
         if self.__user_exist_with_username(username):
             return ("Error", f"User with username {username} exists already")
@@ -96,11 +96,11 @@ class UserHandler():
         if self.__user_exist_with_username(username):
             if self.__validate_password(username, password):
                 self.current_user = username
-                return ("Success", "Login successful")
+                return ("Success", "Logged in successfully.")
 
-            return ('Error', 'Invalid password')
+            return ('Error', 'Invalid password.')
 
-        return ('Error', 'Invalid username')
+        return ('Error', 'Invalid username.')
 
 
     def __user_exist_with_username(self, username):

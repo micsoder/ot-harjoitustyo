@@ -23,7 +23,7 @@ class TestUserHandler(unittest.TestCase):
     def test_create_account_username_exists(self):
 
         result = self.user_handler.create_account('Frodo', '456', 1)
-        self.assertEqual(result, ('Error', 'Username already exists.'))
+        self.assertEqual(result, ('Error', 'User with username Frodo exists already'))
 
     def test_create_account_missing_username(self):
 

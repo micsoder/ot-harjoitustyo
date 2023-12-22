@@ -1,6 +1,6 @@
 
 
-class InsertData():
+class InsertBaseData():
 
     def __init__(self, zone_data):
         self.zone_data = zone_data

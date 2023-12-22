@@ -1,7 +1,7 @@
 from ui.map_dashboard import MapDashboard
 from ui.map_image import MapImage
 from ui.map_bar import MapBar
-from database.insert_data import InsertData
+from database.insert_base_data import InsertBaseData
 
 
 class MapHandler():
@@ -45,7 +45,7 @@ class MapHandler():
         self.switch_state = switch_state
         self.ui_utility = ui_utility
 
-        base_data = InsertData(self.zone_data)
+        base_data = InsertBaseData(self.zone_data)
         base_data.add_base_image()
 
         current_map_page_id = 1

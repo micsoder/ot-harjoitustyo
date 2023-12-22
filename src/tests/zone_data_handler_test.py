@@ -6,6 +6,8 @@ from ui.map_dashboard import MapDashboard
 from ui.map_bar import MapBar
 from ui.map_image import MapImage
 from logic.map_page_handler import MapPageHandler
+from database.insert_base_data import InsertBaseData
+
 
 
 class TestZoneDataHandler(unittest.TestCase):
@@ -14,7 +16,7 @@ class TestZoneDataHandler(unittest.TestCase):
         print('Testing starting...')
         self.test_database = TestDataBase()
         self.zone_data = ZoneDataHandler(self.test_database)
-        # self.map_page = MapPageHandler(self.test_database)
+        self.base_data = InsertBaseData(self.test_database)
         self.zone_data.add_base_image_to_table(
             1, 'Marisong', 'Description', 'Marisong.png')
 
