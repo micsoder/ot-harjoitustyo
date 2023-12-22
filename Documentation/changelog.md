@@ -13,16 +13,16 @@
 
 - I have started with the main block of my program which is the interactive map service for game development.
   - I have created a dashboard where one can add information about a location on the map by writing text in the textbox and then clicking on the save button.
-  - The text is then saved into a table so that next time the user opens the program, the information is retrieved and seen in the textbox.
+  - The text is then saved into a table so that the next time the user opens the program, the information is retrieved and seen in the textbox.
   - I added a placeholder map image to the map frame. 
 - I fixed some Pylint issues
 - I did some testing
 - I did some documenting
 
 ### Week 5
-- I implemented an upper bar to the map from where the user add a new zone or show a zone.
-- The zones which are added are then saved to a table and when the user wants that zone to be shown, then
-  the program takes the information from the table and displays in on the map.
+- I implemented an upper bar to the map from where the user adds a new zone or shows a zone.
+- The zones that are added are then saved to a table and when the user wants that zone to be shown, then
+  the program takes the information from the table and displays it on the map.
 - I did some testing.
 - I did a Github release.
 - I did some documenting.
@@ -34,4 +34,15 @@
 - I did so that the size of the widgets is adjusted to the screen size
 - I did some refactoring
 - I wrote some docstrings
-- I did an instruction manual 
+- I did an instruction manual
+
+### Week 7
+- I have done some refactoring
+- I have written some tests
+- I have written docstrings
+- I have added admin rights
+- I have changed the layout a bit
+- I have written documentation such as architecture
+- I have submitted my program
+
+
