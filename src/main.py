@@ -41,12 +41,8 @@ class Main():
         self.window = customtkinter.CTk()
         self.window.title('Atlas')
 
-        #self.screen_width = self.window.winfo_screenwidth()
-        #self.screen_height = self.window.winfo_screenheight()
-
         self.screen_width = 1200
         self.screen_height = 700
-
 
         self.window.geometry(f"{self.screen_width}x{self.screen_height}+0+0")
         self.window.config(bg='#001220')

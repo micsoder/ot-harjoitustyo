@@ -58,6 +58,8 @@ class ZoneDataHandler():
             zone_title, zone_description = data
             return zone_title, zone_description
 
+        return None
+
     def save_data_from_dashboard_to_table(self, view_id, title, description):
         """
         Saves zone data from the dashboard to the database.
@@ -102,9 +104,6 @@ class ZoneDataHandler():
             self.database.cursor.execute('''
                 INSERT INTO zone_base_data (zone_title, zone_description, zone_image) 
                 VALUES (?, ?, ?)''', (title, description, image, ))
-
-        # else:
-            # None
 
         self.database.connection.commit()
 
@@ -175,8 +174,10 @@ class ZoneDataHandler():
             current_map_page_id)
 
         self.database.cursor.execute(
-            'SELECT zone_title FROM zone_base_data WHERE id IN ({})'.format(
-                ','.join(['?']*len(zone_ids))), zone_ids)
+            f'SELECT zone_title FROM zone_base_data '
+            f'WHERE id IN ({",".join(["?"] * len(zone_ids))})',
+            zone_ids
+        )
         zone_titles = [row[0] for row in self.database.cursor.fetchall()]
 
         return zone_titles
