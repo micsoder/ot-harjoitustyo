@@ -43,10 +43,10 @@ class UserHandler():
 
         if self.__user_exist_with_username(username):
             return ("Error", f"User with username {username} exists already")
-        
+
         if self.__is_bad_password(password):
             return ("Error", "Password needs to be at least three characters long")
-        
+
         hashed_password = self.__hash_password(password)
 
         if self.__new_account(username, hashed_password, admin_rights):
@@ -74,7 +74,7 @@ class UserHandler():
         # I know this is not a good criteria. It is just here for development reasons.
         if len(password) < 3:
             return True
-        
+
         return False
 
     def login(self, username, password):
@@ -91,8 +91,7 @@ class UserHandler():
 
         if username == '' or password == '':
             return ('Error', 'Enter all information.')
-            
-        
+
         if self.__user_exist_with_username(username):
             if self.__validate_password(username, password):
                 self.current_user = username
@@ -102,20 +101,19 @@ class UserHandler():
 
         return ('Error', 'Invalid username.')
 
-
     def __user_exist_with_username(self, username):
 
         self.database.cursor.execute(
-                'SELECT username FROM users WHERE username = ?', [username])
+            'SELECT username FROM users WHERE username = ?', [username])
         result = self.database.cursor.fetchone()
         if result:
             return True
         return False
-    
+
     def __validate_password(self, username, password):
 
         user_password = self.database.cursor.execute(
-                        'SELECT password FROM users WHERE username =?', [username]).fetchone()[0]
+            'SELECT password FROM users WHERE username =?', [username]).fetchone()[0]
 
         if bcrypt.checkpw(password.encode('utf-8'), user_password):
             return True

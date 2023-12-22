@@ -9,7 +9,6 @@ from logic.map_page_handler import MapPageHandler
 from database.insert_base_data import InsertBaseData
 
 
-
 class TestZoneDataHandler(unittest.TestCase):
 
     def setUp(self):

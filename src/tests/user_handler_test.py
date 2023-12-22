@@ -23,12 +23,14 @@ class TestUserHandler(unittest.TestCase):
     def test_create_account_username_exists(self):
 
         result = self.user_handler.create_account('Frodo', '456', 1)
-        self.assertEqual(result, ('Error', 'User with username Frodo exists already'))
-    
+        self.assertEqual(
+            result, ('Error', 'User with username Frodo exists already'))
+
     def test_is_bad_password(self):
 
         result = self.user_handler.create_account('Sauron', '4', 1)
-        self.assertEqual(result, ('Error', "Password needs to be at least three characters long"))
+        self.assertEqual(
+            result, ('Error', "Password needs to be at least three characters long"))
 
     def test_create_account_missing_username(self):
 
