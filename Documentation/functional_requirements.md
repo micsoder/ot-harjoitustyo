@@ -5,7 +5,7 @@
 ### The purpose
 ---
 
-The aim of this program is to aid the process of game development. The main feature of this program is the ability to add information to a conceptual game map. The map data may consist of location information, information about the NPCs (non-playable characters), extra map layers, etc. 
+The aim of this program is to aid the process of game development. The main feature of this program is the ability to add information to a conceptual game map. The map data may consist of location information, lore, geographical information, information about the NPCs (non-playable characters), extra map layers, etc. In the current stage, the user can add information about the location in the dashboard and view different zones.  
 
 ### The users
 ---
@@ -47,12 +47,12 @@ When logged in not as admin:
 - [x] When pressing **add zone** button on the bar, the user can add a new zone.
 - [x] When pressing **show zones** on the bar, the user can choose which zone to show by selecting a zone from the dropdown menu.
 - [x] **Go back** button returns to the parent map page.  
-Example object that can be added to the map:
+- Example object that can be added to the map:
   * Information about a certain place
   * A short story/ lore about a location
   * Quests
  
-- [x] After the user is ready to add something or just view, the user can log out and thus the page is returned the the login page. 
+- [x] After the user is ready with whatever, the user can **exit map view** and return to the login page. 
 
 ### The advanced functionalities
 ---
