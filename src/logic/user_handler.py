@@ -32,26 +32,50 @@ class UserHandler():
         Parameters:
         - username (str): The username for the new account.
         - password (str): The password for the new account.
+        - admin_rights ()
 
         Returns:
         Tuple[str, str]: A tuple containing the success and message.
         """
 
-        if username != '' and password != '':
-            self.database.cursor.execute(
-                'SELECT username FROM users WHERE username = ?', [username])
-            if self.database.cursor.fetchone() is not None:
-                return ('Error', 'Username already exists.')
+        if username == '' or password == '':
+            return ("Error", "Enter all information")
 
-            encoded_password = password.encode('utf-8')
-            hashed_password = bcrypt.hashpw(
-                encoded_password, bcrypt.gensalt())
+        if self.__user_exist_with_username(username):
+            return ("Error", f"User with username {username} exists already")
+        
+        if self.__is_bad_password(password):
+            return ("Error", "Password needs to be at least three characters long")
+        
+        hashed_password = self.__hash_password(password)
+
+        if self.__new_account(username, hashed_password, admin_rights):
+            return ('Success', 'Account has been created.')
+
+        return ("Error", "An error occured when creating the account. Please try again.")
+
+    def __hash_password(self, password):
+
+        encoded_password = password.encode('utf-8')
+        return bcrypt.hashpw(
+            encoded_password, bcrypt.gensalt())
+
+    def __new_account(self, username, hashed_password, admin_rights):
+        try:
             self.database.cursor.execute('INSERT INTO users VALUES (?,?,?)', [
                 username, hashed_password, admin_rights])
             self.database.connection.commit()
-            return ('Success', 'Account has been created.')
+            return True
+        except Exception as e:
+            print(f"Error during database insertion: {e}")
+            return False
+            
+    def __is_bad_password(self, password):
 
-        return ('Error', 'Enter all information.')
+        if len(password) < 3:
+            return True
+        
+        return False
 
     def login(self, username, password):
         """
@@ -65,20 +89,37 @@ class UserHandler():
         Tuple[str, str]: A tuple containing the success and message.
         """
 
-        if username != '' and password != '':
-            self.database.cursor.execute(
-                'SELECT password FROM users WHERE username = ?', [username])
-            result = self.database.cursor.fetchone()
-            if result:
-                if bcrypt.checkpw(password.encode('utf-8'), result[0]):
-                    self.current_user = username
-                    return ('Success', 'Logged in successfully.')
+        if username == '' or password == '':
+            return ('Error', 'Enter all information.')
+            
+        
+        if self.__user_exist_with_username(username):
+            if self.__validate_password(username, password):
+                self.current_user = username
+                return ("Success", "Login successful")
 
-                return ('Error', 'Invalid password.')
+            return ('Error', 'Invalid password')
 
-            return ('Error', 'Invalid username.')
+        return ('Error', 'Invalid username')
 
-        return ('Error', 'Enter all information.')
+
+    def __user_exist_with_username(self, username):
+
+        self.database.cursor.execute(
+                'SELECT username FROM users WHERE username = ?', [username])
+        result = self.database.cursor.fetchone()
+        if result:
+            return True
+        return False
+    
+    def __validate_password(self, username, password):
+
+        user_password = self.database.cursor.execute(
+                        'SELECT password FROM users WHERE username =?', [username]).fetchone()[0]
+
+        if bcrypt.checkpw(password.encode('utf-8'), user_password):
+            return True
+        return False
 
     def is_admin(self):
         """
