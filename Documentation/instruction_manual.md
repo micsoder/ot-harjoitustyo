@@ -27,7 +27,24 @@ poetry shell
 poetry run invoke start
 ```
 
-### Login in
+## Placeholder images
+
+In the assets folder, there are some placeholder images so that the program and its functions can be tested.
+There are zoomed-in images on each "village": 
+- Gothic.png
+- Desert.png
+- Beach.png
+- Ruins.png
+
+And for each zoomed-in village, is a zoomed-in house in that village:
+- GothicHouse.png
+- DesertHouse.png
+- BeachHouse.png
+- RuinsHouse.png
+
+These images can be used when adding new zones to the program as shown below:
+
+### Log in
 When running the program, the first thing the user sees is the login page, if the user already has an account, the user can log in, otherwise, the user should go to the signup page. 
 
 ![UI](pictures/login_frame.PNG)
@@ -56,7 +73,7 @@ By pressing "show zone", the user can select the zones which have been added by 
 ### Add/Show zone 
 Within each added zone, new zones can be added by pressing "add zone" and then "show zone" to go within that zone. 
 
-![UI](pictures/Church.PNG)
+![UI](pictures/GothicHouse.PNG)
 
 ### Go back
 By pressing "Go back", the user goes back to the parent map from where the user has zoomed in. 
