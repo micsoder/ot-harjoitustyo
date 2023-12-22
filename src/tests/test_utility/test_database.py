@@ -42,7 +42,8 @@ class TestDataBase:
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
-                password TEXT NOT NULL)''')
+                password TEXT NOT NULL,
+                admin INTEGER)''')
 
     def create_zone_base_data_table(self):
         self.cursor.execute('''

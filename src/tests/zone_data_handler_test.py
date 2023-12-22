@@ -4,7 +4,7 @@ from logic.zone_data_handler import ZoneDataHandler
 from tests.test_utility.test_database import TestDataBase
 from ui.map_dashboard import MapDashboard
 from ui.map_bar import MapBar
-from ui.map_canva import MapCanva
+from ui.map_image import MapImage
 from logic.map_page_handler import MapPageHandler
 
 

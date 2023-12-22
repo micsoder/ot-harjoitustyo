@@ -45,7 +45,7 @@ class MapDashboard(BaseFrame):
             self.state = 'disabled'
         self.__title_entry()
         self.__label() 
-        self.__add_text_to_dashboard()
+        self.__textbox_to_dashboard()
         self.__load_data()
 
     def __background_dashboard_frame(self):
@@ -91,7 +91,7 @@ class MapDashboard(BaseFrame):
         )
         self.desc_label.place(x=10, y=110)
 
-    def __add_text_to_dashboard(self):
+    def __textbox_to_dashboard(self):
         """Private method to create the description text box in the dashboard."""
 
         self.description = customtkinter.CTkTextbox(
