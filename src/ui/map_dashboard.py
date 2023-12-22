@@ -68,16 +68,16 @@ class MapDashboard(BaseFrame):
             self.dashboard_frame,
             font=self.font1,
             text_color=self.white,
-            fg_color=self.grey_blue,
+            fg_color=self.light_grey_blue,
             bg_color=self.grey_blue,
-            border_color=self.white,
+            border_color=self.light_grey_blue,
             border_width=2,
             placeholder_text='Title of mapview',
             placeholder_text_color=self.grey,
-            width=350,
+            width=280,
             height=70
         )
-        self.title.place(x=10, y=20)
+        self.title.place(x=10, y=15)
 
     def __label(self):
         """Private method to create the description label in the dashboard."""
@@ -89,23 +89,25 @@ class MapDashboard(BaseFrame):
             text_color=self.white,
             bg_color=self.grey_blue
         )
-        self.desc_label.place(x=10, y=110)
+        self.desc_label.place(x=10, y=100)
 
     def __textbox_to_dashboard(self):
         """Private method to create the description text box in the dashboard."""
 
         self.description = customtkinter.CTkTextbox(
             self.dashboard_frame,
-            font=self.font3,
+            font=self.font5,
             text_color=self.white,
-            fg_color=self.grey_blue,
+            fg_color=self.light_grey_blue,
             bg_color=self.grey_blue,
-            border_color=self.white,
+            border_color=self.light_grey_blue,
             border_width=2,
-            width=350,
-            height=300,
+            width=280,
+            height=500,
             wrap='word')
-        self.description.place(x=10, y=150)
+
+        self.description.configure(spacing1=5, spacing2=5)
+        self.description.place(x=10, y=130)
 
     def __save_text_button(self):
         """Private method to create the save button in the dashboard."""
@@ -114,16 +116,17 @@ class MapDashboard(BaseFrame):
             self.dashboard_frame,
             text='Save',
             command=self.__save_data,
-            font=self.font2,
-            text_color=self.white,
+            font=self.font5,
+            text_color=self.black,
             bg_color=self.grey_blue,
-            fg_color=self.dentist_green,
-            hover_color=self.dark_dentist_green,
+            fg_color=self.light_olive_green,
+            border_color=self.light_olive_green,
+            hover_color=self.dark_olive_green,
             cursor=self.hand2,
             corner_radius=5,
             width=50
         )
-        self.save_button.place(x=10, y=760)
+        self.save_button.place(x=10, y=650)
 
     def __load_data(self):
         """ Private method to load data from the the zone_base_data table to the dashboard."""

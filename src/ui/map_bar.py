@@ -46,7 +46,7 @@ class MapBar(BaseFrame):
         self.map_dashboard = map_dashboard
 
         self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
-            75, 4)
+            75, 4.5)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 0)
 
         self.__create_map_bar_frame()
@@ -117,6 +117,7 @@ class MapBar(BaseFrame):
         self.add_zone_button = customtkinter.CTkButton(
             self.map_bar_frame,
             command=self.__zone_information_frame,
+            font=self.font5,
             text='Add zone',
             text_color=self.black,
             bg_color=self.grey_blue,
@@ -135,8 +136,8 @@ class MapBar(BaseFrame):
 
         self.information_frame = customtkinter.CTkFrame(
             self.window,
-            bg_color=self.white,
-            fg_color=self.white,
+            bg_color=self.grey_blue,
+            fg_color=self.grey_blue,
             width=250,
             height=250
         )
@@ -155,9 +156,10 @@ class MapBar(BaseFrame):
         self.zone_label = customtkinter.CTkLabel(
             self.information_frame,
             text="Zone Information",
-            text_color=self.black,
-            bg_color=self.white,
-            fg_color=self.white,
+            text_color=self.white,
+            font=self.font3,
+            bg_color=self.grey_blue,
+            fg_color=self.grey_blue,
         )
         self.zone_label.place(x=10, y=5)
 
@@ -166,13 +168,14 @@ class MapBar(BaseFrame):
 
         self.title = customtkinter.CTkEntry(
             self.information_frame,
-            text_color=self.black,
-            bg_color=self.white,
-            fg_color=self.light_sage,
-            border_color=self.light_sage,
+            font=self.font5,
+            text_color=self.white,
+            bg_color=self.grey_blue,
+            fg_color=self.light_grey_blue,
+            border_color=self.light_grey_blue,
             border_width=2,
             placeholder_text='Add title',
-            placeholder_text_color=self.grey,
+            placeholder_text_color=self.slightly_darker_grey,
             width=220,
             height=20
         )
@@ -183,13 +186,14 @@ class MapBar(BaseFrame):
 
         self.image_entry = customtkinter.CTkEntry(
             self.information_frame,
-            text_color=self.black,
-            bg_color=self.white,
-            fg_color=self.light_sage,
-            border_color=self.light_sage,
+            font=self.font5,
+            text_color=self.white,
+            bg_color=self.grey_blue,
+            fg_color=self.light_grey_blue,
+            border_color=self.light_grey_blue,
             border_width=2,
             placeholder_text='Add image filename',
-            placeholder_text_color=self.grey,
+            placeholder_text_color=self.slightly_darker_grey,
             width=220,
             height=20
         )
@@ -200,10 +204,11 @@ class MapBar(BaseFrame):
 
         self.zone_description = customtkinter.CTkTextbox(
             self.information_frame,
-            text_color=self.black,
-            bg_color=self.white,
-            fg_color=self.light_sage,
-            border_color=self.light_sage,
+            font=self.font5,
+            text_color=self.white,
+            bg_color=self.grey_blue,
+            fg_color=self.light_grey_blue,
+            border_color=self.light_grey_blue,
             border_width=2,
             width=220,
             height=100,
@@ -218,8 +223,9 @@ class MapBar(BaseFrame):
             self.information_frame,
             text='Save',
             command=self.__save_zone_information,
+            font=self.font5,
             text_color=self.black,
-            bg_color=self.white,
+            bg_color=self.grey_blue,
             fg_color=self.light_olive_green,
             border_color=self.light_olive_green,
             hover_color=self.dark_olive_green,
@@ -264,10 +270,11 @@ class MapBar(BaseFrame):
 
         self.cancel_button = customtkinter.CTkButton(
             self.information_frame,
+            font=self.font5,
             text='Cancel',
             command=self.__cancel_adding_of_zone_information,
             text_color=self.black,
-            bg_color=self.white,
+            bg_color=self.grey_blue,
             fg_color=self.light_olive_green,
             border_color=self.light_olive_green,
             hover_color=self.dark_olive_green,
@@ -287,6 +294,7 @@ class MapBar(BaseFrame):
 
         self.go_back_button = customtkinter.CTkButton(
             self.map_bar_frame,
+            font=self.font5,
             command=self.__go_back_to_previous_map,
             text='Go back',
             text_color=self.black,
@@ -317,6 +325,7 @@ class MapBar(BaseFrame):
         self.exit_button = customtkinter.CTkButton(
             self.map_bar_frame,
             command=self.__exit_view,
+            font=self.font5,
             text='Exit map view',
             text_color=self.black,
             bg_color=self.grey_blue,

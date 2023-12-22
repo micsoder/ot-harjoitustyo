@@ -33,7 +33,7 @@ class MapImage(BaseFrame):
         self.ui_utility = ui_utility
 
         self.width, self.height = self.ui_utility.get_size_in_relation_to_window(
-            75, 96)
+            75, 95.5)
         self.x, self.y = self.ui_utility.get_size_in_relation_to_window(0, 4)
 
         self.__create_map_image_frame()

@@ -17,6 +17,7 @@ class BaseFrame():
         self.font2 = ('Arial', 17, 'bold')
         self.font3 = ('Arial', 13, 'bold')
         self.font4 = ('Arial', 13, 'bold', 'underline')
+        self.font5 = ('Arial', 13)
 
         """Colors used in the UI."""
         self.black = '#000000'
@@ -24,12 +25,14 @@ class BaseFrame():
         self.midnight_blue = '#001a2e'
         self.ocean_blue = '#004780'
         self.grey = '#a3a3a3'
+        self.slightly_darker_grey = '#636363'
         self.dark_grey_black = '#121111'
         self.white = '#fff'
         self.light_dentist_green = '#00bf77'
         self.dentist_green = '#00965d'
         self.dark_dentist_green = '#006e44'
         self.grey_blue = '#3b5f7a'
+        self.light_grey_blue = '#6a89a1'
         self.light_olive_green = '#6EA149'
         self.dark_olive_green = '#56793C'
         self.light_sage = '#E5F0DD'
