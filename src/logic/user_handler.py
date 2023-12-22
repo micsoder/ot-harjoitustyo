@@ -10,8 +10,9 @@ class UserHandler():
 
     Methods:
     - __init__(self, database): Initializes the UserHandler with a database connection.
-    - create_account(self, username, password): Creates a new user account with the given username and password.
+    - create_account(self, username, password): Creates account with username and password.
     - login(self, username, password): Authenticates a user with the provided username and password.
+    - is_admin(self): Returns true or false if user is admin or not.
     """
 
     def __init__(self, database):
@@ -24,7 +25,7 @@ class UserHandler():
         self.database = database
         self.current_user = None
 
-    def create_account(self, username, password, admin_rights ):
+    def create_account(self, username, password, admin_rights):
         """
         Creates a new user account with the given username and password.
 
@@ -78,8 +79,14 @@ class UserHandler():
                 return ('Error', 'Invalid username.')
         else:
             return ('Error', 'Enter all information.')
-    
+
     def is_admin(self):
+        """
+        Checks whether current user is admin or not.
+
+        Returns:
+        Boolen
+        """
 
         self.database.cursor.execute(
             'SELECT admin FROM users WHERE username = ?', [self.current_user])
@@ -89,6 +96,3 @@ class UserHandler():
             return True
         else:
             return False
-
-
-

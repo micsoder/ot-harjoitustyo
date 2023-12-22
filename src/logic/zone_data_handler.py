@@ -10,14 +10,22 @@ class ZoneDataHandler():
     - map_page: An instance of the MapPageHandler class for managing map-page relationships.
 
     Methods:
-    - __init__(self, database): Initializes the ZoneDataHandler with a database connection.
-    - load_data_from_table_to_dashboard(self, view_id): Retrieves zone data for display on the dashboard.
-    - save_data_from_dashboard_to_table(self, view_id, title, description): Saves zone data from the dashboard to the database.
-    - add_base_image_to_table(self, view_id, title, description, image): Adds base image information to the database.
-    - load_image_from_table_to_map(self, view_id): Retrieves the image file name for a given zone from the database.
-    - save_new_zone_information_to_table(self, current_map_page_id, title, description, image): Saves new zone information to the database.
-    - fetch_zone_titles_for_optionmenu(self, current_map_page_id): Retrieves zone titles for use in the OptionMenu.
-    - retrive_id_based_on_title(self, selected_title): Retrieves the zone ID based on the selected title.
+    - __init__(self, database): 
+        Initializes the ZoneDataHandler with a database connection.
+    - load_data_from_table_to_dashboard(self, view_id): 
+        Retrieves zone data for display on the dashboard.
+    - save_data_from_dashboard_to_table(self, view_id, title, description): 
+        Saves zone data from the dashboard to the database.
+    - add_base_image_to_table(self, view_id, title, description, image): 
+        Adds base image information to the database.
+    - load_image_from_table_to_map(self, view_id): 
+        Retrieves the image file name for a given zone from the database.
+    - save_new_zone_information_to_table(self, current_map_page_id, title, description, image): 
+        Saves new zone information to the database.
+    - fetch_zone_titles_for_optionmenu(self, current_map_page_id): 
+        Retrieves zone titles for use in the OptionMenu.
+    - retrive_id_based_on_title(self, selected_title): 
+        Retrieves the zone ID based on the selected title.
     """
 
     def __init__(self, database):

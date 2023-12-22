@@ -121,14 +121,14 @@ class SignupFrame(BaseFrame):
             corner_radius=5,
             width=120)
         button.place(x=200, y=220)
-    
+
     def __admin_checkbox(self):
         self.chk_var = customtkinter.IntVar()
         self.admin_checkbox = customtkinter.CTkCheckBox(
-            self.frame, 
+            self.frame,
             text='Admin',
-            font=self.font3, 
-            variable = self.chk_var, 
+            font=self.font3,
+            variable=self.chk_var,
             command=self.__admin_checkbox_clicked,
             text_color=self.white,
             fg_color=self.midnight_blue,
@@ -136,11 +136,10 @@ class SignupFrame(BaseFrame):
             border_width=3)
 
         self.admin_checkbox.place(x=370, y=220)
-    
+
     def __admin_checkbox_clicked(self):
         self.admin_rights = self.chk_var.get()
         print('Creating admin account with admin_rights:', self.admin_rights)
-        
 
     def __login_label_to_next_page(self):
         """Creates a label prompting users to log in."""

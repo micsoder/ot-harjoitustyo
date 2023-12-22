@@ -44,7 +44,7 @@ class MapDashboard(BaseFrame):
         else:
             self.state = 'disabled'
         self.__title_entry()
-        self.__label() 
+        self.__label()
         self.__textbox_to_dashboard()
         self.__load_data()
 
@@ -131,10 +131,9 @@ class MapDashboard(BaseFrame):
         zone_title, zone_description = self.zone_data.load_data_from_table_to_dashboard(
             self.current_map_page_id)
         self.title.insert(0, zone_title)
-        self.title.configure(state = self.state)
+        self.title.configure(state=self.state)
         self.description.insert("1.0", zone_description)
-        self.description.configure(state = self.state)
-    
+        self.description.configure(state=self.state)
 
     def __save_data(self):
         """Private method to save data from the dashboard to the zone."""

@@ -10,7 +10,7 @@ class TestUserHandler(unittest.TestCase):
         self.test_database = TestDataBase()
         self.user_handler = UserHandler(self.test_database)
         self.user_handler.create_account('Frodo', '123', 1)
-        self.user_handler.create_account('Samwise', '456', 0) 
+        self.user_handler.create_account('Samwise', '456', 0)
 
     def test_create_account_correct_input(self):
 

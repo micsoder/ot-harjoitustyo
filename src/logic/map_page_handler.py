@@ -7,10 +7,10 @@ class MapPageHandler():
     - database: An SQLite database connection and cursor.
 
     Methods:
-    - __init__(self, database): Initializes the MapPageHandler with a database connection.
-    - save_map_page_id(self, current_map_page_id, new_zone_id): Saves a mapping between a map page and a zone in the database.
-    - fetch_zone_ids_within_current_map_id(self, current_map_page_id): Retrieves the zone IDs within a specified map page.
-    - fetch_zone_parent_for_current_map(self, current_map_page_id): Retrieves the parent map page ID for a specified zone within a map.
+    - __init__(self, database): Initializes the MapPageHandler
+    - save_map_page_id(self, current_map_page_id, new_zone_id): Creates relationship with map/zone.
+    - fetch_zone_ids_within_current_map_id(self, current_map_page_id): Retrieves the zone IDs.
+    - fetch_zone_parent_for_current_map(self, current_map_page_id): Retrieves the parent map ID.
     """
 
     def __init__(self, database):
