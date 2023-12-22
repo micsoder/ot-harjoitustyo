@@ -32,7 +32,7 @@ class UserHandler():
         Parameters:
         - username (str): The username for the new account.
         - password (str): The password for the new account.
-        - admin_rights ()
+        - admin_rights (int): 1 for true and 0 for false.
 
         Returns:
         Tuple[str, str]: A tuple containing the success and message.
@@ -69,9 +69,9 @@ class UserHandler():
         except Exception as e:
             print(f"Error during database insertion: {e}")
             return False
-            
-    def __is_bad_password(self, password):
 
+    def __is_bad_password(self, password):
+        # I know this is not a good criteria. It is just here for development reasons.
         if len(password) < 3:
             return True
         
