@@ -13,6 +13,16 @@ The build of the program looks currently like this, a three-tier monolithic arch
 ![Architecture](pictures/ui_and_logic_architecture.png)
 
 
+
+
+
 ### Login architecture
 
 ![Architecture](pictures/login_architecture.png)
+
+
+
+
+### Signup architecture
+
+![Architecture](pictures/signup_architecture.png)
