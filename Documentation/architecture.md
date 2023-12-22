@@ -15,4 +15,4 @@ The build of the program looks currently like this, a three-tier monolithic arch
 
 ### Login architecture
 
-![Architecture](pictures/program_architecture.png)
+![Architecture](pictures/login_architecture.png)
