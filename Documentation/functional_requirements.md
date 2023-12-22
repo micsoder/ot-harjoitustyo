@@ -13,12 +13,25 @@ There will be both an admin and a normal user, where the admin will have the rig
 
 ### The user Interface (UI)
 ---
-The program has three main views; the login page, the create account page, and the map page. By zooming in and out on the map page, new map pages appear. 
+The program has three main views; the login page, the create account page, and the map page.
 
-The program starts from the login page, if the user doesn't have an account, the user will have to create an account before logging in. After the user has logged in as an admin, the map page is seen with a dashboard to the right and a toolbar at the top of the window. **By left-clicking the user can zoom in, by ctrl + right-clicking the user can add an object to the map, and by right-clicking the user can zoom out. To edit the dashboard, the user can press the edit button to change the information on the dashboard. The information on the dashboard corresponds to the object that is viewed on the map. To exit the program the user can press the exit button which takes the user back to the login page.** 
+The program starts from the login page, if the user doesn't have an account, the user will have to create an account before logging in, and there the user can select if the user is an admin or not (This is just here to showcase the functionality of admin rights, if it was a program, the user would not have this option). After the user has logged in, the map page is seen with a dashboard to the right and a toolbar at the top of the window.
 
-
-![UI](pictures/ui_sketch_first_draft.png)
+When logged in as admin:
+- The user can modify the description and title and save that information
+- The user can add new zones
+- The user can switch between map zones
+- The user can go back
+- The user can exit to the login menu
+  
+When logged in not as admin:
+- The user can only read the text but not modify
+- The user cannot add new zones
+- The user can switch between map zones
+- The user can go back
+- The user can exit to the login menu
+  
+![UI](pictures/overview.png)
 
 ### The basic functionalities
 ---
@@ -26,13 +39,14 @@ The program starts from the login page, if the user doesn't have an account, the
 #### Before login
 - [x] When the program is opened, the user is greeted by a login page
 - [x] On the login page, the user can create an account or log in if the user already has an account
+- [x] When creating an account, it checks whether the username or password exists and if not, the creation is successful. The user can check the box to become an admin.  
 - [x] The user can log in by adding their username and password. If the username or password is wrong or cannot be found, then a message about that will appear
 
 #### After login
 - [x] The user sees the first map page which is the most zoomed-out map view of the game map. On the right side of the page, there is a dashboard where information added to the map is viewed.
-- [x] (EDIT: When pressing **add zone** button on the bar, the user can add a new zone.) By mouse left-clicking, the map view zooms in on the particular place where the mouse is, and by mouse right-clicking, the map view zooms out.
-- [x] (EDIT: When pressing **show zones** on the bar, the user can choose which zone to show by selecting a zone from the dropdown menu.) By ctrl + right-click on a specific spot on the map, a drop-down menu appears which states the objects that can be added to the map on that location.
-- [x] Go back button which returns to the parent map page.  
+- [x] When pressing **add zone** button on the bar, the user can add a new zone.
+- [x] When pressing **show zones** on the bar, the user can choose which zone to show by selecting a zone from the dropdown menu.
+- [x] **Go back** button returns to the parent map page.  
 Example object that can be added to the map:
   * Information about a certain place
   * A short story/ lore about a location
