@@ -2,17 +2,27 @@
 
 To run this program either, clone this repository or download the latest release. 
 
-#### 1. Install the dependencies from Poetry
+#### 1. Clone the repository
+```
+git clone https://github.com/micsoder/ot-harjoitustyo.git
+```
+
+#### 2. Go to the directory
+```
+cd ot-harjoitustyo
+```
+
+#### 3. Install the dependencies from Poetry
 ```
 poetry install
 ```
 
-#### 2. Set the virtual environment
+#### 4. Set the virtual environment
 ```
 poetry shell
 ```
 
-#### 3. Start the program by running 
+#### 5. Start the program by running 
 ```
 poetry run invoke start
 ```
