@@ -11,3 +11,8 @@ The build of the program looks currently like this, a three-tier monolithic arch
 #### Program logic
 
 ![Architecture](pictures/ui_and_logic_architecture.png)
+
+
+### Login architecture
+
+![Architecture](pictures/program_architecture.png)
