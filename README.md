@@ -19,7 +19,7 @@ Up to this stage, the program enables users to both create an account and log in
 - [Changelog](Documentation/changelog.md)
 - [Architecture](Documentation/architecture.md)
 - [Tests](Documentation/test_documentation.md)
-- [Week 5 release](https://github.com/micsoder/ot-harjoitustyo/releases/tag/week5)
+- [Final release](https://github.com/micsoder/ot-harjoitustyo/releases/tag/FinalRelease)
 
 ### Installation guide
 
