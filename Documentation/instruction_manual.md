@@ -23,13 +23,13 @@ When running the program, the first thing the user sees is the login page, if th
 ![UI](pictures/login_frame.PNG)
 
 ### Sign up 
-Create an account by selecting a username and password, press "create account" and then return to the login page for logging in. 
+Create an account by selecting a username and password, press "create account" and then return to the login page for logging in. By selecting admin, the user will have admin rights which means that the user can modify text and add new zones. If the user is without admin rights, then the user cannot modify any text and cannot add new zones, only view the content.
 
 ![UI](pictures/signup_frame.PNG)
 
 
 ### Main view 
-This is the main view that the user is greeted with. The dashboard information can be modified and changed and by pressing save, the information is saved into a database. 
+This is the main view that the user is greeted with. The dashboard information can be modified and changed and by pressing save, the information is saved into the database. 
 
 ![UI](pictures/main_view.PNG)
 
