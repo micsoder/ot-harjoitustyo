@@ -1,4 +1,5 @@
 from tkinter import messagebox
+import tkinter as tk
 import customtkinter
 from ui.base_frame import BaseFrame
 
@@ -37,12 +38,15 @@ class SignupFrame(BaseFrame):
         self.switch_frame = switch_frame
         self.ui_utility = ui_utility
 
+        self.admin_rights = 0
+
         self.__new_frame()
         self.__username_entry()
         self.__password_entry()
 
         self.__signup_label()
         self.__signup_button()
+        self.__admin_checkbox()
         self.__login_label_to_next_page()
         self.__login_button_to_next_page()
 
@@ -117,6 +121,26 @@ class SignupFrame(BaseFrame):
             corner_radius=5,
             width=120)
         button.place(x=200, y=220)
+    
+    def __admin_checkbox(self):
+        self.chk_var = customtkinter.IntVar()
+        self.admin_checkbox = customtkinter.CTkCheckBox(
+            self.frame, 
+            text='Admin',
+            font=self.font3, 
+            variable = self.chk_var, 
+            command=self.__admin_checkbox_clicked,
+            text_color=self.white,
+            fg_color=self.midnight_blue,
+            border_color=self.ocean_blue,
+            border_width=3)
+
+        self.admin_checkbox.place(x=370, y=220)
+    
+    def __admin_checkbox_clicked(self):
+        self.admin_rights = self.chk_var.get()
+        print('Creating admin account with admin_rights:', self.admin_rights)
+        
 
     def __login_label_to_next_page(self):
         """Creates a label prompting users to log in."""
@@ -145,7 +169,7 @@ class SignupFrame(BaseFrame):
     def __signup_button_pressed(self):
         """Handles the signup by calling the user_handler logic."""
         success, message = self.user_handler.create_account(
-            self.username.get(), self.password.get())
+            self.username.get(), self.password.get(), self.admin_rights)
         if success == 'Success':
             messagebox.showinfo(success, message)
         else:

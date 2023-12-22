@@ -51,5 +51,5 @@ class UiHandler():
             SignupFrame(self.window, self.user_handler,
                         self.switch_frame, self.ui_utility)
         if frame_id == 3:
-            MapHandler(self.window, self.zone_data, self.map_page,
+            MapHandler(self.window, self.user_handler, self.zone_data, self.map_page,
                        self.switch_frame, self.ui_utility)

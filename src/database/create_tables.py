@@ -24,7 +24,8 @@ class CreateTables():
         self.database.cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 username TEXT NOT NULL,
-                password TEXT NOT NULL)''')
+                password TEXT NOT NULL,
+                admin INTEGER)''')
 
     def __create_zone_base_data_table(self):
         """Private method to create the 'zone_base_data' table in the SQLite database."""

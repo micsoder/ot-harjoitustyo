@@ -19,7 +19,7 @@ class MapBar(BaseFrame):
     - map_dashboard: An object representing the map dashboard frame.
     """
 
-    def __init__(self, current_map_page_id, window, zone_data, map_page, switch_frame, ui_utility, map_image, map_dashboard):
+    def __init__(self, current_map_page_id, window, user_handler, zone_data, map_page, switch_frame, ui_utility, map_image, map_dashboard):
         """
         Initializes a new instance of the MapBar class.
 
@@ -37,6 +37,7 @@ class MapBar(BaseFrame):
         super().__init__()
         self.current_map_page_id = current_map_page_id
         self.window = window
+        self.user_handler = user_handler
         self.zone_data = zone_data
         self.map_page = map_page
         self.switch_frame = switch_frame
@@ -51,7 +52,8 @@ class MapBar(BaseFrame):
         self.__create_map_bar_frame()
         self.__fetch_zone_titles_for_optionmenu()
         self.__show_zone_options()
-        self.__add_zone_button()
+        if self.user_handler.is_admin():
+            self.__add_zone_button()
         if self.current_map_page_id != 1:
             color = self.light_olive_green
         else:

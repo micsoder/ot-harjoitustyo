@@ -28,7 +28,7 @@ class MapHandler():
 
     """
 
-    def __init__(self, window, zone_data, map_page, switch_state, ui_utility):
+    def __init__(self, window, user_handler, zone_data, map_page, switch_state, ui_utility):
         """Initializes the MapHandler with the provided parameters and sets up the initial map page.
 
         Args:
@@ -39,6 +39,7 @@ class MapHandler():
             ui_utility: Utility class for handling UI-related functionality.
         """
         self.window = window
+        self.user_handler = user_handler
         self.zone_data = zone_data
         self.map_page = map_page
         self.switch_state = switch_state
@@ -68,7 +69,7 @@ class MapHandler():
             map_image = MapImage(current_map_page_id,
                                  self.window, self.zone_data, self.ui_utility)
             map_dashboard = MapDashboard(
-                current_map_page_id, self.window, self.zone_data, self.ui_utility)
+                current_map_page_id, self.window, self.user_handler, self.zone_data, self.ui_utility)
 
-            MapBar(current_map_page_id, self.window, self.zone_data, self.map_page,
+            MapBar(current_map_page_id, self.window, self.user_handler, self.zone_data, self.map_page,
                    self.switch_frame, self.ui_utility, map_image, map_dashboard)

@@ -22,8 +22,9 @@ class UserHandler():
         - database: An SQLite database connection and cursor.
         """
         self.database = database
+        self.current_user = None
 
-    def create_account(self, username, password):
+    def create_account(self, username, password, admin_rights ):
         """
         Creates a new user account with the given username and password.
 
@@ -44,8 +45,8 @@ class UserHandler():
                 encoded_password = password.encode('utf-8')
                 hashed_password = bcrypt.hashpw(
                     encoded_password, bcrypt.gensalt())
-                self.database.cursor.execute('INSERT INTO users VALUES (?,?)', [
-                                             username, hashed_password])
+                self.database.cursor.execute('INSERT INTO users VALUES (?,?,?)', [
+                                             username, hashed_password, admin_rights])
                 self.database.connection.commit()
                 return ('Success', 'Account has been created.')
         else:
@@ -69,6 +70,7 @@ class UserHandler():
             result = self.database.cursor.fetchone()
             if result:
                 if bcrypt.checkpw(password.encode('utf-8'), result[0]):
+                    self.current_user = username
                     return ('Success', 'Logged in successfully.')
                 else:
                     return ('Error', 'Invalid password.')
@@ -76,3 +78,17 @@ class UserHandler():
                 return ('Error', 'Invalid username.')
         else:
             return ('Error', 'Enter all information.')
+    
+    def is_admin(self):
+
+        self.database.cursor.execute(
+            'SELECT admin FROM users WHERE username = ?', [self.current_user])
+        admin = self.database.cursor.fetchone()
+
+        if admin[0] == 1:
+            return True
+        else:
+            return False
+
+
+
