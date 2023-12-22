@@ -16,7 +16,6 @@ class TestZoneDataHandler(unittest.TestCase):
         print('Testing starting...')
         self.test_database = TestDataBase()
         self.zone_data = ZoneDataHandler(self.test_database)
-        self.base_data = InsertBaseData(self.test_database)
         self.zone_data.add_base_image_to_table(
             1, 'Marisong', 'Description', 'Marisong.png')
 
